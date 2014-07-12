@@ -1,0 +1,47 @@
+{
+  "save": "Save",
+  "nature": {
+    "remuneration": "Remuneration",
+    "transportation_vouchers": "Transportation vouchers",
+    "food_vouchers": "Food vouchers",
+    "advance": "Advance",
+    "extra_hours": "Extra hours",
+    "loan": "Loan",
+    "other": "Other",
+    "eletric_power": "Eletric power",
+    "purchase_food": "Purchase food",
+    "buying_snack": "Buying snack",
+    "purchase": "Purchase",
+    "commemoration": "Commemoration",
+    "course_or_training": "Course or training",
+    "rent": "Rent",
+    "cleaning": "Cleaning",
+    "supermarket": "Supermarket",
+    "telephone_or_internet": "Telephone or internet",
+    "equipment_maintenance": "Equipment maintenance"
+  },
+  "validate": {
+    "description_required": "Description required",
+    "value_is_required": "Value is required",
+    "expiration_day_is_required": "Expiration day is required",
+    "repetition_interval_is_required": "Repetition interval is required",
+    "invalid_start_date": "Invalid start date"
+  },
+  "income": "Income",
+  "expense": "Expense",
+  "graph": "Graph",
+  "movement": {
+    "add_movement": "Add movement",
+    "description": "Description",
+    "value": "Value",
+    "start_date": "Start date",
+    "must_repeat": "Must repeat",
+    "repeat_every": "Repeat every",
+    "no_repeats": "No repeats",
+    "day": "Day",
+    "week": "Week",
+    "month": "Month",
+    "expiration_day": "Expiration day",
+    "amount_of_repetitions": "Amount of repetitions"
+  }
+}

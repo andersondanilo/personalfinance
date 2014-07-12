@@ -1,0 +1,47 @@
+{
+  "nature": {
+    "transportation_vouchers": "Vales de transporte",
+    "remuneration": "Remuneración",
+    "advance": "Avanzar",
+    "loan": "Préstamo",
+    "extra_hours": "Horas más",
+    "other": "Otro",
+    "eletric_power": "De energía elétrica",
+    "purchase_food": "Comprar alimentos",
+    "buying_snack": "Compra de merienda",
+    "purchase": "Compra",
+    "commemoration": "Conmemoración",
+    "course_or_training": "Curso o formación",
+    "rent": "Renta",
+    "cleaning": "Limpieza",
+    "supermarket": "Supermercado",
+    "telephone_or_internet": "Teléfono o Internet",
+    "equipment_maintenance": "Mantenimiento de los equipos",
+    "food_vouchers": "Vales de comida"
+  },
+  "validate": {
+    "description_required": "Descripción requerida",
+    "expiration_day_is_required": "Se requiere día de caducidad",
+    "repetition_interval_is_required": "Se requiere intervalo de repetición",
+    "value_is_required": "Se requiere valor",
+    "invalid_start_date": "Fecha de inicio no válido"
+  },
+  "income": "Ingresos",
+  "expense": "Gasto",
+  "graph": "Gráfico",
+  "movement": {
+    "add_movement": "Añadir movimiento",
+    "description": "Descripción",
+    "value": "Valor",
+    "start_date": "Fecha de inicio",
+    "must_repeat": "Debe repetir",
+    "repeat_every": "Repetir cada",
+    "no_repeats": "No Repeticiones",
+    "day": "Día",
+    "week": "Semana",
+    "month": "Mes",
+    "expiration_day": "Día de vencimiento",
+    "amount_of_repetitions": "Cantidad de repeticiones"
+  },
+  "save": "Guardar"
+}

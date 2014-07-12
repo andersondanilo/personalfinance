@@ -1,0 +1,62 @@
+<section role="region">
+    <header>
+        <a href="#/index">
+            <span class="icon icon-back">back</span>
+        </a>
+        <menu type="toolbar">
+        </menu>
+        <h1>
+            <%= i18n.t('movement.add_movement') %>
+        </h1>
+    </header>
+    <section class="body-content">
+        <form id="form-movement-insert">
+            <p>
+                <select data-bind="value:movement_type,events:['change']">
+                    <option value="income"><%= i18n.t('income') %></option>
+                    <option value="expense"><%= i18n.t('expense') %></option>
+                </select>
+            </p>
+
+            <p>
+                <input data-bind="value:description,events:['keyup']" type="text" placeholder="<%= i18n.t('movement.description') %>" />
+            </p>
+
+            <p>
+                <input style="width:49%;display:inline-block;" class="ignore-invalid" data-bind="value:edit_value,events:['keyup']" type="number" step=".01" placeholder="<%= i18n.t('movement.value') %>" pattern="[0-9.,]+" />
+                <input style="width:49%;display:inline-block;" data-bind="value:start_date,events:['keyup']" type="date" placeholder="<%= i18n.t('movement.start_date') %>" />
+            </p>
+
+            <p>
+                <%= i18n.t('movement.must_repeat') %> 
+                <label class="pack-switch" style="padding-left:1rem;">
+                    <input type="checkbox" data-bind="checked:repeated,events:['click','change']">
+                    <span></span>
+                </label>
+            </p>
+            <p>
+                
+            </p>
+
+            <div data-bind="css:{display:repeatedDisplay}">
+                <h2><%= i18n.t('movement.repeat_every') %></h2>
+
+                <p> 
+                    <input style="width:30%; display:inline-block;" data-bind="value:cycle_interval,events:['keyup']" type="number" />
+                    <select style="width:68%;display:inline-block;" data-bind="value:cycle_type,events:['change']">
+                        <option value=""><%= i18n.t('movement.no_repeats') %></option>
+                        <option value="day"><%= i18n.t('movement.day') %></option>
+                        <option value="week"><%= i18n.t('movement.week') %></option>
+                        <option value="month"><%= i18n.t('movement.month') %></option>
+                    </select>
+                </p>
+
+                <p>
+                    <input style="width:49%;display:inline-block;" data-bind="value:expiration_day,events:['keyup']" type="number" min="1" step="1" max="31" placeholder="<%= i18n.t('movement.expiration_day') %>" />
+
+                    <input style="width:49%;display:inline-block;" data-bind="value:parcel_count,events:['keyup']" type="number" placeholder="<%= i18n.t('movement.amount_of_repetitions') %>" />
+                </p>
+            </div>
+        </form>
+    </section>
+</section>

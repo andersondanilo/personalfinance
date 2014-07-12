@@ -1,0 +1,86 @@
+/* Reset CSS Yui */
+html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,.thumbnail{border:0}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;*font-size:100%}legend{color:#000}
+
+$primary-color   : rgb(148, 7, 7); // red
+$secondary-color : rgb(56, 90, 127);   // blue
+$terciary-color  : rgb(102, 102, 102); // gray
+$primary-constrast-color : white;
+
+@import 'resources/buttons.css';
+@import 'resources/headers.css';
+@import 'resources/tabs.css';
+@import 'resources/input_areas.css';
+@import 'resources/switches.css';
+@import 'resources/status.css';
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+  background-color: #fff;
+  font-family: sans-serif;
+  overflow-x:hidden;
+}
+
+h2 {
+  padding-top:1rem;
+  padding-bottom:1rem;
+}
+
+#main-tab {
+    display:block;
+    position:relative;
+    overflow:auto;
+    li {
+        display:block;
+        float:left;
+        box-sizing: border-box;
+        width: 33.3%;
+        font-size:1.2rem;
+    }
+    border-bottom: 1px solid rgb(0, 170, 204);
+}
+
+#main-tab.inactive {
+  display:none;
+}
+
+.loading:after {
+  display: block;
+  content: "";
+  background: url(../images/loading.png) no-repeat center center;
+  min-height: 62px;
+  text-align:center;
+  padding: 1em;
+}
+
+.layer-container {
+  .layer {
+    display:none;
+  }
+  .layer.active {
+    display:block;
+  }
+}
+
+.main-tab.inactive {
+  display:none;
+}
+
+.body-content {
+  background-color: rgb(239, 240, 235);
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  top:50px;
+  overflow:auto;
+  padding:1rem;
+  font-size: 2em;
+}
+
+menu[type="toolbar"] a span {
+  top: -2px;
+
+}

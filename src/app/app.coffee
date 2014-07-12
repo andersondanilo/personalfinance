@@ -1,0 +1,22 @@
+require.config {
+  baseUrl: if typeof(APP_BASE_URL) == 'undefined' then './app' else APP_BASE_URL,
+  paths:
+    text:       '../vendor/require/text'
+    jquery:     '../vendor/jquery/jquery'
+    underscore: '../vendor/underscore/underscore'
+    backbone:   '../vendor/backbone/backbone'
+    epoxy:      '../vendor/backbone/epoxy'
+    backbone_indexeddb:  '../vendor/backbone/indexeddb'
+    i18n:       '../vendor/i18next/i18next'
+    zepto:      '../vendor/zepto/zepto'
+}
+
+define ['i18n', 'config/i18n', 'views/main', 'routes/router', 'components/layer_manager', 'text!templates/main/index.html', 'epoxy'], (i18n, conf_i18n, main, router, LayerManager, main_template_raw, epoxy) ->
+  class App
+    constructor: ->
+      @layers = new LayerManager $('#app-layer-container')
+      
+      i18n.init conf_i18n, =>
+        router.start()
+
+  return new App()
