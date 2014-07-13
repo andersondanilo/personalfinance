@@ -6,7 +6,8 @@ define ['components/model', 'services/date'], (Model, dateService) ->
 
     defaults:
       id: '',
-      movement_id: '', # income | expense
+      movement_id: '',
+      movement_type: '', # income | expense (usado para filtrar)
       description: '',
       parcel_number: '',
       value: '',

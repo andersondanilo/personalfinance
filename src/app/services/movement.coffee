@@ -1,7 +1,7 @@
 define ['backbone', 'underscore', 'collections/movement', 'collections/parcel', 'models/parcel', 'services/date'], (Backbone, _, MovementCollection, parcelCollection, Parcel, dateService) ->
 
   class MovementService
-    createMovement: (movement, callbacks) ->
+    createMovement: (movement, callbacks={}) ->
       movement.save movement.toJSON(),
         success: ->
           # adicionamos as parcelas

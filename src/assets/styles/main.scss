@@ -84,3 +84,9 @@ menu[type="toolbar"] a span {
   top: -2px;
 
 }
+
+section[role="status"].status-container {
+  bottom: -200px;
+  position:fixed;
+
+}

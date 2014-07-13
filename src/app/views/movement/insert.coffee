@@ -9,7 +9,8 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'models/movement', 'co
 
     render: ->
       app     = require 'app'
-      Toolbar = require 'components/toolbar'
+      Toolbar = require 'widgets/toolbar'
+      router  = require 'routes/router'
 
       require ['text!templates/movement/insert.html'], (template_raw) =>
         template = _.template template_raw
@@ -36,11 +37,16 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'models/movement', 'co
           {
             'save': ->
               # Temos que validar primeiro
-              errors = model.validate(model.toJSON())
-              #if not errors
-              
+              errors = model.validate model.toJSON()
+              if errors
+                for field of errors
+                  app.status.show errors[field]
+                  break
+              else
+                app.status.show i18n.t('successfully_added')
+                movementService.createMovement model
+                router.navigate '/', trigger:true
           }
         ]
-
 
   new InsertView()

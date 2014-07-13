@@ -11,10 +11,30 @@ require.config {
     zepto:      '../vendor/zepto/zepto'
 }
 
-define ['i18n', 'config/i18n', 'views/main', 'routes/router', 'components/layer_manager', 'text!templates/main/index.html', 'epoxy'], (i18n, conf_i18n, main, router, LayerManager, main_template_raw, epoxy) ->
+define [
+    'zepto',
+    'i18n',
+    'config/i18n',
+    'views/main',
+    'routes/router',
+    'widgets/layer_manager',
+    'widgets/status',
+    'text!templates/main/index.html',
+    'epoxy'], (
+      $,
+      i18n,
+      conf_i18n,
+      main,
+      router,
+      LayerManager,
+      Status,
+      main_template_raw,
+      epoxy
+) ->
   class App
     constructor: ->
       @layers = new LayerManager $('#app-layer-container')
+      @status = new Status $('#app-status')
       
       i18n.init conf_i18n, =>
         router.start()

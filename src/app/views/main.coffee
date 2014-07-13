@@ -1,4 +1,4 @@
-define ['zepto', 'underscore', 'components/view', 'components/tab_manager', 'components/layer_manager', 'components/toolbar'], ($, _, View, TabManager, LayerManager, Toolbar) ->
+define ['zepto', 'underscore', 'components/view', 'widgets/tab_manager', 'widgets/layer_manager', 'widgets/toolbar'], ($, _, View, TabManager, LayerManager, Toolbar) ->
 
   class MainView extends View
     

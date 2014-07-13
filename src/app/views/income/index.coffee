@@ -1,15 +1,15 @@
-define ['zepto', 'underscore', 'components/view', 'i18n', 'views/main'], ($, _, View, i18n, main) ->
+define ['views/movement/index', 'views/main'], (MovementView, MainView) ->
 
-  class IndexView extends View
+  class IndexView extends MovementView
 
-    constructor: ->
+    constructor: (options={}) ->
+      options.movement_type = 'income'
+      super options
 
-    render: ->
-      main.render()
-
-      if !$('li#income').is(':target')
-        $('li#income a').click()
-
-      # @TODO: Listagem de entradas
+    getEl: ->
+      mainView = require 'MainView'
+      if (not @el?) or (not mainView.layers.exist(@el))
+        @el = mainView.layers.add()
+      return @el
 
   new IndexView()
