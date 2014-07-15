@@ -1,4 +1,4 @@
-define ['components/model', 'services/date'], (Model, dateService) ->
+define ['components/model', 'services/date', 'services/currency'], (Model, dateService, currencyService) ->
 
   class Parcel extends Model
     database: require 'config/database'
@@ -17,6 +17,20 @@ define ['components/model', 'services/date'], (Model, dateService) ->
       status: '1',
       create_date: '',
       update_date: ''
+
+    computeds:
+
+      color: ->
+        if @get('movement_type') == 'income'
+          return '#2EB944'
+        else
+          return '#E22A00'
+
+      date_formatted: ->
+        return dateService.format('d/m/Y', dateService.createFromFormat('Y-m-d', @get('date')))
+
+      value_formatted: ->
+        return currencyService.format(@get('value'))
 
     validate: (attrs) ->
       i18n = require 'i18n'

@@ -31,6 +31,7 @@ define ['backbone', 'underscore', 'collections/movement', 'collections/parcel', 
             # Cadastramos a parcela
             parcel = new Parcel
               movement_id: movement.get('id')
+              movement_type: movement.get('movement_type')
               description: movement.get('description')
               parcel_number: i
               value: movement.get('value')
@@ -53,9 +54,11 @@ define ['backbone', 'underscore', 'collections/movement', 'collections/parcel', 
 
             parcel.save parcel.toJSON(),
               success: ->
-                parcelSuccess()
+                if parcelSuccess
+                  parcelSuccess()
               error: ->
-                parcelError()
+                if parcelError
+                  parcelError()
         error: ->
           if callbacks.error
             callbacks.error()

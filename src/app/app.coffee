@@ -12,6 +12,7 @@ require.config {
 }
 
 define [
+    'underscore',
     'zepto',
     'i18n',
     'config/i18n',
@@ -21,6 +22,7 @@ define [
     'widgets/status',
     'text!templates/main/index.html',
     'epoxy'], (
+      _,
       $,
       i18n,
       conf_i18n,
@@ -35,6 +37,7 @@ define [
     constructor: ->
       @layers = new LayerManager $('#app-layer-container')
       @status = new Status $('#app-status')
+      @events = _.extend {}, Backbone.Events
       
       i18n.init conf_i18n, =>
         router.start()

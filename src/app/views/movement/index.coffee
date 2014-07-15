@@ -8,34 +8,48 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'views/main', 'collect
       super options
 
     render: ->
-      @el = @getEl()
       main.render()
+
+      @el = @getEl()
+
+      app = require 'app'
 
       if !$('li#income').is(':target')
         $('li#income a').click()
 
       collection = @collection
 
-      @collection.fetch {
-        conditions: {'movement_type': @movement_type}
-      }
+      doFetch = =>
+        @collection.fetch {
+          conditions: {'movement_type': @movement_type}
+        }
 
-      require ['text!templates/movement/index'], (template_raw) =>
+      doFetch()
+
+      app.events.on 'sync:parcel', doFetch
+
+      require ['text!templates/movement/index.html', 'text!templates/movement/item.html'], (template_raw, item_template_raw) =>
         template = _.template(template_raw)
-
-        @el.html(template())
+        item_template = _.template(item_template_raw)
+        
+        @el.html template()
+        @el.removeClass 'loading'
 
         ItemView = View.extend
           tagName: "div",
-          initialize: ->
-              console.log 'iniciou esta view', @model
+          bindings: "data-bind"
+          initialize: (options) ->
+            $(@el).html(item_template())
+            super options
 
         ListView = View.extend
-          el: @el.find("#movement-list"),
-          itemView: ItemView,
+          el: @el.find(".parcel-list-container")
+          itemView: ItemView
+          bindings: "data-bind"
           
           initialize: ->
             @collection = collection
-            @collection.reset([{description: "Luke Skywalker"}, {description: "Han Solo"}])
+
+        listView = new ListView()
 
   return IndexView

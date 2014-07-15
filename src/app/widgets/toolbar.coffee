@@ -7,14 +7,15 @@ define ['zepto', 'underscore', 'backbone', 'i18n'], ($, _, Backbone, i18n) ->
       @buttons = []
 
     set: (buttons) ->
+      @reset()
       _.each buttons, (button) =>
         @buttons.push new ToolbarButton(button)
-      @reset()
       @render()
 
     reset: ->
       @el.children().each ->
-        $(this).delete()
+        $(this).remove()
+      @buttons = []
 
     render: ->
       _.each @buttons, (button) =>

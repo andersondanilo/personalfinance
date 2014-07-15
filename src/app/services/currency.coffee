@@ -13,5 +13,8 @@ define ->
       display = display.replace(/[^0-9.,]/g, '')
       return display
 
+    format: (value) ->
+      return '$ ' + Number(value).toFixed(2).replace('.', ',')
+
 
   return new CurrencyService
