@@ -1,4 +1,4 @@
-define ['views/movement/index', 'views/main'], (MovementView, mainView) ->
+define ['views/parcel/index', 'views/main'], (MovementView, mainView) ->
 
   class IndexView extends MovementView
 

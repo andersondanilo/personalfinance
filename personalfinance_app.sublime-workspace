@@ -519,22 +519,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "src/assets/styles/main.scss",
-			"settings":
-			{
-				"buffer_size": 2516,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/app/templates/movement/item.html",
-			"settings":
-			{
-				"buffer_size": 344,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -592,11 +576,14 @@
 	},
 	"file_history":
 	[
+		"/home/anderson/Documents/Projetos/personalfinance/app/src/assets/styles/main.scss",
 		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/templates/movement/index.html",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/views/income/index.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/views/movement/index.coffee",
 		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/templates/movement/item.html",
+		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/views/movement/index.coffee",
+		"/home/anderson/Documents/Projetos/personalfinance/app/build/assets/styles/resources/lists.css",
 		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/models/parcel.coffee",
+		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/templates/movement/insert.html",
+		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/views/income/index.coffee",
 		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/services/currency.coffee",
 		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/services/movement.coffee",
 		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/components/model.coffee",
@@ -613,13 +600,11 @@
 		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/components/model.js",
 		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/routes/router.coffee",
 		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/config/database.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/templates/movement/insert.html",
 		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/views/movement/insert.js",
 		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/models/parcel.js",
 		"/home/anderson/Documents/Projetos/personalfinance/app/src/vendor/zepto/zepto.js",
 		"/home/anderson/Documents/Projetos/personalfinance/app/build/assets/styles/resources/status.css",
 		"/home/anderson/Documents/Projetos/personalfinance/app/src/index.html",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/assets/styles/main.scss",
 		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/widgets/status.js",
 		"/home/anderson/Documents/Projetos/personalfinance/app/src/assets/styles/resources/status.css",
 		"/home/anderson/Documents/Projetos/personalfinance/app/test/src/movement_test.coffee",
@@ -718,8 +703,7 @@
 		"/home/anderson/Sites/site-transporte/www/protected/modules/administracao/controllers/RetornoController.php",
 		"/home/anderson/Sites/site-transporte/www/protected/modules/base/controllers/BaseRetornoController.php",
 		"/home/anderson/Sites/site-transporte/www/protected/modules/administracao/controllers/DefaultController.php",
-		"/home/anderson/Sites/site-transporte/www/protected/models/Boleto.php",
-		"/home/anderson/Sites/site-transporte/www/protected/modules/administracao/components/Controller.php"
+		"/home/anderson/Sites/site-transporte/www/protected/models/Boleto.php"
 	],
 	"find":
 	{
@@ -1014,69 +998,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "src/assets/styles/main.scss",
-					"settings":
-					{
-						"buffer_size": 2516,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2268,
-								2268
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2352.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "src/app/templates/movement/item.html",
-					"settings":
-					{
-						"buffer_size": 344,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								309,
-								309
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/HTML/HTML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -1133,6 +1056,18 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"modelparcelco",
+				"src/app/models/parcel.coffee"
+			],
+			[
+				"lists",
+				"build/assets/styles/resources/lists.css"
+			],
+			[
+				"viewmov",
+				"src/app/views/movement/index.coffee"
+			],
 			[
 				"moveitemht",
 				"src/app/templates/movement/item.html"
@@ -1632,18 +1567,6 @@
 			[
 				"authser",
 				"protected/services/AuthService.php"
-			],
-			[
-				"adminconto",
-				"protected/modules/administracao/components/Controller.php"
-			],
-			[
-				"modadvieper",
-				"protected/modules/administracao/views/permissoes/_form.php"
-			],
-			[
-				"modpermiss",
-				"protected/modules/administracao/views/permissoes/index.php"
 			]
 		],
 		"width": 0.0

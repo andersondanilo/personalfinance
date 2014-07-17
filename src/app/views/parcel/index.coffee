@@ -7,6 +7,11 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'views/main', 'collect
       @movement_type = options.movement_type
       super options
 
+    getEl: ->
+      if (not @el?) or (not main.layers.exist(@el))
+        @el = main.layers.add()
+      return @el
+
     render: ->
       main.render()
 
@@ -28,7 +33,7 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'views/main', 'collect
 
       app.events.on 'sync:parcel', doFetch
 
-      require ['text!templates/movement/index.html', 'text!templates/movement/item.html'], (template_raw, item_template_raw) =>
+      require ['text!templates/parcel/index.html', 'text!templates/parcel/item.html'], (template_raw, item_template_raw) =>
         template = _.template(template_raw)
         item_template = _.template(item_template_raw)
         
@@ -36,14 +41,14 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'views/main', 'collect
         @el.removeClass 'loading'
 
         ItemView = View.extend
-          tagName: "div",
+          tagName: "li",
           bindings: "data-bind"
           initialize: (options) ->
             $(@el).html(item_template())
             super options
 
         ListView = View.extend
-          el: @el.find(".parcel-list-container")
+          el: @el.find(".parcel-list")
           itemView: ItemView
           bindings: "data-bind"
           

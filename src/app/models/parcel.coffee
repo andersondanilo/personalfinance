@@ -32,6 +32,9 @@ define ['components/model', 'services/date', 'services/currency'], (Model, dateS
       value_formatted: ->
         return currencyService.format(@get('value'))
 
+      route_update: ->
+        return "#parcel/update/#{@get('id')}"
+
     validate: (attrs) ->
       i18n = require 'i18n'
       errors = {}

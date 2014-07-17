@@ -12,6 +12,7 @@ $primary-constrast-color : white;
 @import 'resources/input_areas.css';
 @import 'resources/switches.css';
 @import 'resources/status.css';
+@import 'resources/lists.css';
 
 
 html, body {
@@ -88,31 +89,4 @@ menu[type="toolbar"] a span {
 section[role="status"].status-container {
   bottom: -200px;
   position:fixed;
-}
-
-.parcel-item {
-  padding:1rem;
-  font-size:1.8rem;
-  position: relative;
-  border-bottom: 1px dashed #999;
-
-  h2 {
-    font-weight:bold;
-    padding: 0;
-    margin: 0;
-  }
-
-  .parcel-value {
-    font-size:2rem;
-    font-weight:bold;
-  }
-
-  .column-left { }
-
-  .column-right {
-    position: absolute;
-    right: 0px;
-    top: 1rem;
-    right: 1rem;
-  }
 }
