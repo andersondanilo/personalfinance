@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"new",
+				"newinteger"
+			],
+			[
+				"paddin",
+				"padding-right"
+			],
+			[
+				"ins",
+				"instances"
+			],
+			[
 				"temp",
 				"template_raw"
 			],
@@ -456,10 +468,6 @@
 				"prefixo_numero_documento"
 			],
 			[
-				"new",
-				"newBoleto"
-			],
-			[
 				"befo",
 				"beforeValidate"
 			],
@@ -506,14 +514,6 @@
 			[
 				"inicio_",
 				"inicio_nosso_numero"
-			],
-			[
-				"codigo_c",
-				"codigo_cedente_dac"
-			],
-			[
-				"inicio_n",
-				"inicio_numero_documento"
 			]
 		]
 	},
@@ -577,26 +577,35 @@
 	"file_history":
 	[
 		"/home/anderson/Documents/Projetos/personalfinance/app/src/assets/styles/main.scss",
+		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/services/currency.coffee",
+		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/templates/movement/insert.html",
+		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/models/movement.coffee",
+		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/widgets/currency_input.coffee",
+		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/views/movement/insert.coffee",
+		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/views/parcel/update.coffee",
+		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/views/parcel/index.coffee",
+		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/widgets/layer_manager.coffee",
+		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/config/router.coffee",
+		"/home/anderson/Documents/Projetos/personalfinance/app/src/assets/styles/simplegrid.css",
+		"/home/anderson/Documents/Projetos/personalfinance/app/build/assets/styles/resources/input_areas.css",
+		"/home/anderson/Documents/Projetos/personalfinance/app/src/assets/styles/resources/input_areas.css",
+		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/widgets/layer_manager.js",
+		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/config/router.js",
+		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/views/main.coffee",
+		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/app.coffee",
+		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/views/income/index.coffee",
 		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/templates/movement/index.html",
 		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/templates/movement/item.html",
 		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/views/movement/index.coffee",
 		"/home/anderson/Documents/Projetos/personalfinance/app/build/assets/styles/resources/lists.css",
 		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/models/parcel.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/templates/movement/insert.html",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/views/income/index.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/services/currency.coffee",
 		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/services/movement.coffee",
 		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/components/model.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/app.coffee",
 		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/widgets/toolbar.coffee",
 		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/widgets/tab_manager.coffee",
 		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/widgets/status.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/widgets/layer_manager.coffee",
 		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/components/view.coffee",
 		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/components/collection.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/views/movement/insert.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/views/main.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/models/movement.coffee",
 		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/components/model.js",
 		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/routes/router.coffee",
 		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/config/database.coffee",
@@ -650,7 +659,6 @@
 		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/components/tab_manager.coffee",
 		"/home/anderson/Documents/Projetos/personalfinance/app/src/assets/styles/resources/switches.css",
 		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/views/movement/insert.html",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/assets/styles/resources/input_areas.css",
 		"/home/anderson/Documents/Projetos/personalfinance/app/build/index.html",
 		"/home/anderson/Documents/Projetos/personalfinance/app/src/vendor/require/require.js",
 		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/views/movement/insert.html",
@@ -695,15 +703,7 @@
 		"/home/anderson/Downloads/i18next.amd-1.7.3/i18next.amd-1.7.3.js",
 		"/home/anderson/Documents/Projetos/personalfinance/app/src/assets/styles/resources/buttons.css",
 		"/home/anderson/Documents/Projetos/personalfinance/app/src/manifest.webapp",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/manifest.webapp",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/assets/style/main.scss",
-		"/home/anderson/.config/sublime-text-2/Packages/User/Ruby Slim.sublime-settings",
-		"/home/anderson/Sites/site-transporte/www/protected/modules/base/controllers/BaseBoletoController.php",
-		"/home/anderson/Sites/site-transporte/www/protected/modules/administracao/controllers/BoletoController.php",
-		"/home/anderson/Sites/site-transporte/www/protected/modules/administracao/controllers/RetornoController.php",
-		"/home/anderson/Sites/site-transporte/www/protected/modules/base/controllers/BaseRetornoController.php",
-		"/home/anderson/Sites/site-transporte/www/protected/modules/administracao/controllers/DefaultController.php",
-		"/home/anderson/Sites/site-transporte/www/protected/models/Boleto.php"
+		"/home/anderson/Documents/Projetos/personalfinance/app/build/manifest.webapp"
 	],
 	"find":
 	{
@@ -725,6 +725,16 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"repeatedDisplay",
+			"style",
+			"style=",
+			"padding-right",
+			"20px",
+			"body-content",
+			"grid-pad",
+			"mobile-col",
+			"col-",
+			"router",
 			"valor",
 			"console",
 			"console.",
@@ -842,17 +852,7 @@
 			"cb(",
 			"eval",
 			".send",
-			"cb",
-			"loadComplete",
-			"_fetchOne",
-			"loaded 2",
-			"loaded",
-			"200",
-			"JSON.parse",
-			"formata",
-			"200",
-			"== 200",
-			".text"
+			"cb"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -860,6 +860,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"repeated_display",
+			"col",
 			"dateObj",
 			"View",
 			"view",
@@ -985,9 +987,7 @@
 			"ProdutoForma",
 			"usuario_",
 			"formValores",
-			"Formas",
-			"Forma",
-			"com:TLabelEx"
+			"Formas"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -1057,6 +1057,50 @@
 		"selected_items":
 		[
 			[
+				"modelmove",
+				"src/app/models/movement.coffee"
+			],
+			[
+				"stylscss",
+				"src/assets/styles/main.scss"
+			],
+			[
+				"curren",
+				"src/app/services/currency.coffee"
+			],
+			[
+				"srcinsert.html",
+				"src/app/templates/movement/insert.html"
+			],
+			[
+				"scss",
+				"src/assets/styles/main.scss"
+			],
+			[
+				"srcinput.",
+				"build/assets/styles/resources/input_areas.css"
+			],
+			[
+				"srcassetsinpu",
+				"src/assets/styles/resources/input_areas.css"
+			],
+			[
+				"layma",
+				"build/app/widgets/layer_manager.js"
+			],
+			[
+				"laymana",
+				"src/app/widgets/layer_manager.coffee"
+			],
+			[
+				"viespa",
+				"src/app/views/parcel/index.coffee"
+			],
+			[
+				"router",
+				"src/app/config/router.coffee"
+			],
+			[
 				"modelparcelco",
 				"src/app/models/parcel.coffee"
 			],
@@ -1071,10 +1115,6 @@
 			[
 				"moveitemht",
 				"src/app/templates/movement/item.html"
-			],
-			[
-				"scss",
-				"src/assets/styles/main.scss"
 			],
 			[
 				"currency",
@@ -1153,10 +1193,6 @@
 				"src/assets/styles/resources/status.css"
 			],
 			[
-				"stylscss",
-				"src/assets/styles/main.scss"
-			],
-			[
 				"modelsmove",
 				"src/app/models/movement.coffee"
 			],
@@ -1187,10 +1223,6 @@
 			[
 				"parcelco",
 				"node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/tar-pack/node_modules/fstream/lib/collect.js"
-			],
-			[
-				"modelmove",
-				"src/app/models/movement.coffee"
 			],
 			[
 				"serviemoc",
@@ -1535,38 +1567,6 @@
 			[
 				"modelscontaban.php",
 				"protected/models/ContaBancaria.php"
-			],
-			[
-				"modelempres",
-				"protected/models/Empresa.php"
-			],
-			[
-				"modellogin",
-				"protected/models/Login.php"
-			],
-			[
-				"modusuariocont",
-				"protected/modules/usuario/controllers/SenhaController.php"
-			],
-			[
-				"modlogin",
-				"protected/models/Login.php"
-			],
-			[
-				"admincontroller",
-				"protected/modules/administracao/components/Controller.php"
-			],
-			[
-				"moduser",
-				"protected/models/User.php"
-			],
-			[
-				"buttoncol",
-				"protected/components/contaReceber/ButtonColumn.php"
-			],
-			[
-				"authser",
-				"protected/services/AuthService.php"
 			]
 		],
 		"width": 0.0

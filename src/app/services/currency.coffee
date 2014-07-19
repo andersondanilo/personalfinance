@@ -5,16 +5,16 @@ define ->
     parse: (number) ->
       null
 
-    formatComma: (value) ->
-      # Todo: internacionalizado
-      if value is '' || value is null
-        return ''
-      display = String(value).replace('.', ',')
-      display = display.replace(/[^0-9.,]/g, '')
-      return display
+    getPreffix: ->
+      return 'R$'
+
+    getComma: ->
+      return ','
 
     format: (value) ->
-      return '$ ' + Number(value).toFixed(2).replace('.', ',')
+      return @getPreffix() + " " + Number(value).toFixed(2).replace('.', @getComma())
+
+
 
 
   return new CurrencyService

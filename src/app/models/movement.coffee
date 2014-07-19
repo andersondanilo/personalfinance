@@ -19,28 +19,8 @@ define ['components/model', 'services/date', 'services/currency', 'collections/p
       value: '',
       description: ''
 
-    computeds: 
-      edit_value:
-        get: ->
-          value = @get('value')
-          return currencyService.formatComma(value)
-
-        set: (newvalue) ->
-          if newvalue is ''
-            return {value:''}
-          newvalue = newvalue.replace(',', '.')
-          aux = newvalue.split('.')
-          newvalue = aux.shift()
-          if aux.length > 0
-            newvalue += '.'
-          for n in aux
-            newvalue += n.replace(/[^0-9]/g,'')
-          newvalue = Number(newvalue)
-          if isNaN(newvalue)
-            newvalue = ''
-          return {value: newvalue}
-
-      repeatedDisplay: ->
+    computeds:
+      repeated_display: ->
         if this.get('repeated')
           return ''
         else

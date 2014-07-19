@@ -11,16 +11,15 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'models/movement', 'co
       app     = require 'app'
       Toolbar = require 'widgets/toolbar'
 
-      require ['text!templates/movement/insert.html', 'widgets/currency_input'], (template_raw, CurrencyInput) =>
+      require ['text!templates/movement/insert.html'], (template_raw) =>
         template = _.template template_raw
 
         if !app.layers.exist(@el)
           @el = app.layers.add()
 
         @el.html template({
-          'i18n': i18n
+          'i18n'   : i18n
         })
-
         
         @el.removeClass 'loading'
 
@@ -31,10 +30,6 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'models/movement', 'co
 
         model = new Movement()
         form  = new  FormView({model:model})
-
-        currencyInput = new CurrencyInput(@el.find('.input-currency'))
-        currencyInput.on 'change', (newvalue) =>
-          model.set {value:newvalue}
 
         @toolbar = new Toolbar(@el.find('menu[type=toolbar]').first())
         @toolbar.set [

@@ -17,7 +17,7 @@ define [
     'i18n',
     'config/i18n',
     'views/main',
-    'routes/router',
+    'config/router',
     'widgets/layer_manager',
     'widgets/status',
     'text!templates/main/index.html',
@@ -38,6 +38,7 @@ define [
       @layers = new LayerManager $('#app-layer-container')
       @status = new Status $('#app-status')
       @events = _.extend {}, Backbone.Events
+      @router = router
       
       i18n.init conf_i18n, =>
         router.start()

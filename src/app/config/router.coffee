@@ -24,12 +24,13 @@ define [
   router = new Router
 
   router.on 'route:income', ->
-    require ['views/income/index'], (incomeView) ->
-      incomeView.render()
+    require ['views/parcel/index'], (IndexView) ->
+      IndexView.instance('income').render()
+      
 
   router.on 'route:expense', ->
-    require ['views/expense/index'], (expenseView) ->
-      expenseView.render()
+    require ['views/parcel/index'], (IndexView) ->
+      IndexView.instance('expense').render()
 
   router.on 'route:graph', ->
     require ['views/graph/index'], (graphView) ->

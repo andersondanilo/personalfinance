@@ -5,13 +5,21 @@ define ['zepto', 'underscore', 'backbone', 'i18n'], ($, _, Backbone, i18n) ->
     constructor: (el) ->
       @el        = el
       @mainLayer = @el.children('.layer').first()
-      @tagName   = @mainLayer.get(0).tagName
+      if @mainLayer and @mainLayer.get(0)
+        @tagName = @mainLayer.get(0).tagName
+      else
+        @tagName = null
 
     add: ->
       @el.children('.layer').removeClass('active')
       newEl = $(document.createElement(@tagName)).addClass('layer loading active')
       @el.append newEl
       return newEl
+
+    go: (layer) ->
+      @el.children('.layer').removeClass('active')
+      layer.addClass('active')
+      return layer
 
     exist: (oldEl) ->
       if !oldEl

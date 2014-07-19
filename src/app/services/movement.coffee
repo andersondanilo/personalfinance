@@ -49,8 +49,12 @@ define ['backbone', 'underscore', 'collections/movement', 'collections/parcel', 
                 dateService.addDay currentDate, movement.get('cycle_interval') * 7
 
               if movement.get('cycle_type') == 'month'
+                console.log 'oldCurrentDate => ', dateService.format('Y-m-d', currentDate)
+                console.log 'add => ', movement.get('cycle_interval')
+                console.log 'expiration_day => ', movement.get('expiration_day')
                 dateService.addMonth currentDate, movement.get('cycle_interval')
                 dateService.setDay currentDate, movement.get('expiration_day')
+                console.log 'newCurrentDate => ', dateService.format('Y-m-d', currentDate)
 
             parcel.save parcel.toJSON(),
               success: ->

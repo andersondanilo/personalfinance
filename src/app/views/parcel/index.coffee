@@ -1,15 +1,25 @@
 define ['zepto', 'underscore', 'components/view', 'i18n', 'views/main', 'collections/parcel'], ($, _, View, i18n, main, ParcelCollection) ->
 
   class IndexView extends View
+    @instances = {}
 
-    constructor: (options={})->
+    constructor: (options)->
       @collection = new ParcelCollection()
       @movement_type = options.movement_type
       super options
+      @el = null
+
+    @instance: (movement_type) ->
+      if not (movement_type of @instances)
+        @instances[movement_type] = new IndexView {
+          movement_type: movement_type
+        }
+      return @instances[movement_type]
 
     getEl: ->
       if (not @el?) or (not main.layers.exist(@el))
         @el = main.layers.add()
+      main.layers.go(@el)
       return @el
 
     render: ->
@@ -19,8 +29,8 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'views/main', 'collect
 
       app = require 'app'
 
-      if !$('li#income').is(':target')
-        $('li#income a').click()
+      if !$('li#'+@movement_type).is(':target')
+        $('li#'+@movement_type+' a').click()
 
       collection = @collection
 
