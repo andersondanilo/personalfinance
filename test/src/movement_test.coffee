@@ -9,10 +9,10 @@ parcelCollection   = new ParcelCollection
 describe 'Movement', ->
   it 'Should valid', ->
     model = new Movement()
-    result = model.validate({
+    result = model.validate {
       description: 'Teste',
-      value: '100,2'
-    })
+      value: '100.2'
+    }
     expect(result).to.be.undefined
 
   it 'Shoud invalid', ->
@@ -43,8 +43,7 @@ describe 'MovementService', ->
             model = models[0]
             model.fetchParcels {
               success: ->
-                parcels = model.getParcelCollection().sortBy (p) ->
-                  return Number(p.get('date').replace(/-/g, ''))
+                parcels = model.getParcelCollection().models
 
                 expect(parcels.length).to.be.eql(1)
                 done()
@@ -84,8 +83,7 @@ describe 'MovementService', ->
             model = models[0]
             model.fetchParcels {
               success: ->
-                parcels = model.getParcelCollection().sortBy (p) ->
-                  return Number(p.get('date').replace(/-/g, ''))
+                parcels = model.getParcelCollection().models
 
                 expect(parcels.length).to.be.eql(5)
                 expect(parcels[0].get('date')).to.be.eql('2014-01-01')
@@ -104,4 +102,99 @@ describe 'MovementService', ->
         }
       error: (c, e) ->
         expect(e).to.be.eql('')
+        done()
+
+  it 'Should create Infinite', (done) ->
+    @timeout(5000)
+    model = new Movement({
+      description: 'My Repeated Model'
+      value: '10.0'
+      repeated: true
+      parcel_count: ''
+      cycle_type: 'month'
+      cycle_interval: 1
+      expiration_day: 31
+      start_date: '2014-01-01'
+    })
+    movementService.createMovement model,
+      success: ->
+          model.fetchParcels {
+            success: ->
+              parcels = model.getParcelCollection().models
+
+              expect(parcels.length).to.be.eql(6)
+              expect(parcels[0].get('date')).to.be.eql('2014-01-01')
+              expect(parcels[1].get('date')).to.be.eql('2014-02-28')
+              expect(parcels[2].get('date')).to.be.eql('2014-03-31')
+              expect(parcels[3].get('date')).to.be.eql('2014-04-30')
+              expect(parcels[4].get('date')).to.be.eql('2014-05-31')
+              expect(parcels[5].get('date')).to.be.eql('2014-06-30')
+              done()
+            error: (c,e)->
+              expect(e).to.be.eql('')
+              done()
+          }
+      error: (collection, error)->
+        expect(error).to.be.undefined
+        done()
+
+  it 'Should Process Infinite', (done) ->
+    @timeout(5000)
+    model = new Movement({
+      description: 'My Repeated Model'
+      value: '10.0'
+      repeated: true
+      parcel_count: ''
+      cycle_type: 'month'
+      cycle_interval: 1
+      expiration_day: 15
+      start_date: '2013-01-01'
+    })
+    movementService.createMovement model,
+      success: ->
+          model.fetchParcels {
+            success: ->
+              parcels = model.getParcelCollection().models
+
+              expect(parcels.length).to.be.eql(6)
+              expect(parcels[0].get('date')).to.be.eql('2013-01-01')
+              expect(parcels[1].get('date')).to.be.eql('2013-02-15')
+              expect(parcels[2].get('date')).to.be.eql('2013-03-15')
+              expect(parcels[3].get('date')).to.be.eql('2013-04-15')
+              expect(parcels[4].get('date')).to.be.eql('2013-05-15')
+              expect(parcels[5].get('date')).to.be.eql('2013-06-15')
+
+
+
+              movementService.processInfinite model,
+                success: ->
+
+                  model.fetchParcels {
+                    success: ->
+                      parcels = model.getParcelCollection().models
+
+                      expect(parcels[0].get('date')).to.be.eql('2013-01-01')
+                      expect(parcels[1].get('date')).to.be.eql('2013-02-15')
+                      expect(parcels[2].get('date')).to.be.eql('2013-03-15')
+                      expect(parcels[3].get('date')).to.be.eql('2013-04-15')
+                      expect(parcels[4].get('date')).to.be.eql('2013-05-15')
+                      expect(parcels[5].get('date')).to.be.eql('2013-06-15')
+
+
+
+                    error: (c,e)->
+                      expect(e).to.be.eql('')
+                      done()
+                  }
+
+                error: ->
+                  expect(false).to.be.true
+                  done()
+
+            error: (c,e)->
+              expect(e).to.be.eql('')
+              done()
+          }
+      error: (collection, error)->
+        expect(error).to.be.undefined
         done()

@@ -15,16 +15,19 @@ define ['components/model', 'services/date', 'services/currency', 'collections/p
       create_date: '',
       update_date: '',
       status: '1',
-      start_date: dateService.format('Y-m-d'),
+      start_date: dateService.format('YYYY-MM-DD'),
       value: '',
       description: ''
 
     computeds:
       repeated_display: ->
-        if this.get('repeated')
+        if @get('repeated')
           return ''
         else
           return 'none'
+
+      is_infinite: ->
+        return @get('repeated') and not @get('parcel_count')
 
     fetchParcels: (params2) ->
       if !@parcelCollection
@@ -51,7 +54,7 @@ define ['components/model', 'services/date', 'services/currency', 'collections/p
       if !attrs.description
         errors.description = i18n.t 'validate.description_required'
 
-      if !attrs.value
+      if !attrs.value || !Number(attrs.value)
         errors.value = i18n.t 'validate.value_is_required'
 
       if attrs.cycle_type && (attrs.cycle_type != 'day' && attrs.cycle_type != 'week' && attrs.cycle_type != 'month')
@@ -64,7 +67,7 @@ define ['components/model', 'services/date', 'services/currency', 'collections/p
           errors.value = i18n.t 'validate.repetition_interval_is_required'
 
       if attrs.start_date
-        start_date_obj = dateService.createFromFormat('Y-m-d', attrs.start_date)
+        start_date_obj = dateService.createFromFormat('YYYY-MM-DD', attrs.start_date)
         if !start_date_obj
           errors.start_date = i18n.t 'validate.invalid_start_date'
 

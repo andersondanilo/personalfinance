@@ -29,6 +29,8 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'views/main', 'collect
 
       app = require 'app'
 
+      main.toolbar.set ["insert/#{@movement_type}"]
+
       if !$('li#'+@movement_type).is(':target')
         $('li#'+@movement_type+' a').click()
 

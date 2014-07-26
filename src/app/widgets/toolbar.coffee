@@ -24,8 +24,11 @@ define ['zepto', 'underscore', 'backbone', 'i18n'], ($, _, Backbone, i18n) ->
   class ToolbarButton extends Backbone.View
 
     constructor: (params) ->
-      if params == 'insert'
-        params = type:'add', label: i18n.t('save') , href:'#insert'
+      if params == 'insert/income'
+        params = type:'add', label: i18n.t('save') , href:'#insert/income'
+
+      if params == 'insert/expense'
+        params = type:'add', label: i18n.t('save') , href:'#insert/expense'
 
       if params.save?
         params = type:'save', label: i18n.t('save'), callback: params['save']

@@ -4,13 +4,15 @@ isBrowser = typeof(window) != 'undefined'
 requireJsConfig =
     paths:
       text:       '../vendor/require/text'
-      jquery:     '../vendor/jquery/jquery'
       underscore: '../vendor/underscore/underscore'
       backbone:   '../vendor/backbone/backbone'
       backbone_indexeddb:  '../vendor/backbone/indexeddb'
       epoxy:      '../vendor/backbone/epoxy'
       i18n:       '../vendor/i18next/i18next'
       zepto:      '../vendor/zepto/zepto'
+    map:
+      '*':
+        jquery: 'zepto'
 
 if !isBrowser
   indexeddb = require 'indexeddb-js'

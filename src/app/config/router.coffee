@@ -7,10 +7,11 @@ define [
   class Router extends Backbone.Router
     routes:
       'index'   : 'income'
-      'income'  : 'income',
-      'expense' : 'expense',
-      'graph'   : 'graph',
-      'insert'  : 'insert',
+      'income'  : 'income'
+      'expense' : 'expense'
+      'graph'   : 'graph'
+      'insert/:type'  : 'insert'
+      'parcel/update/:id': 'parcel_update'
       '*actions': 'income'
 
     start: ->
@@ -20,6 +21,12 @@ define [
 
     startHistory: ->
       Backbone.history.start({pushState: false, root: 'income'})
+
+    back: ->
+      if window.history.length > 1
+        window.history.go(-1)
+      else
+        @navigate 'index', {trigger:true}
 
   router = new Router
 
@@ -36,8 +43,12 @@ define [
     require ['views/graph/index'], (graphView) ->
       graphView.render()
 
-  router.on 'route:insert', ->
+  router.on 'route:insert', (type) ->
     require ['views/movement/insert'], (insertView) ->
-      insertView.render()
+      insertView.render type
+
+  router.on 'route:parcel_update', (id) ->
+    require ['views/parcel/update'], (updateView) ->
+      updateView.render(id)
 
   router

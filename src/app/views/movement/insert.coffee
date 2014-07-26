@@ -7,7 +7,7 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'models/movement', 'co
       @toolbar = null
 
 
-    render: ->
+    render: (movement_type='income') ->
       app     = require 'app'
       Toolbar = require 'widgets/toolbar'
 
@@ -30,6 +30,7 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'models/movement', 'co
         }
 
         model = new Movement()
+        model.set 'movement_type':movement_type
         form  = new  FormView({model:model})
 
         currencyInput = new CurrencyInput(@el.find('.input-currency'))
@@ -49,7 +50,10 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'models/movement', 'co
               else
                 app.status.show i18n.t('successfully_added')
                 movementService.createMovement model
-                app.router.navigate '/', trigger:true
+                if model.get('movement_type') == 'income'
+                  app.router.navigate 'income', trigger:true
+                else
+                  app.router.navigate 'expense', trigger:true
           }
         ]
 

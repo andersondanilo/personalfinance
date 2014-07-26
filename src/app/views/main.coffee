@@ -21,7 +21,7 @@ define ['zepto', 'underscore', 'components/view', 'widgets/tab_manager', 'widget
         @tabs         = new TabManager($('#main-tab'))
         @tabs.add i18n.t('income'), 'income'
         @tabs.add i18n.t('expense'), 'expense'
-        @tabs.add i18n.t('graph'), 'graph'
+        #@tabs.add i18n.t('graph'), 'graph'
 
         @layers       = new LayerManager($('#content-layer-container'))
         @toolbar      = new Toolbar($('#main-toolbar'))
@@ -47,8 +47,8 @@ define ['zepto', 'underscore', 'components/view', 'widgets/tab_manager', 'widget
       if !app.layers.in_main()
         app.layers.reset()
 
-      if !@layers.in_main() || @first_render
-        @toolbar.set ['insert']
+      #if !@layers.in_main() || @first_render
+        #@toolbar.set []
 
       @first_render = false
 

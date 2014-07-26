@@ -12,22 +12,26 @@ define ['components/model', 'services/date', 'services/currency'], (Model, dateS
       parcel_number: '',
       value: '',
       date: '',
-      payment_date: '',
-      expiration_date: '',
+      paid: false,
       status: '1',
       create_date: '',
       update_date: ''
 
     computeds:
-
       color: ->
         if @get('movement_type') == 'income'
           return '#2EB944'
         else
           return '#E22A00'
 
+      date_obj:
+        get: ->
+          return dateService.createFromFormat('YYYY-MM-DD', @get('date'))
+        set: (value) ->
+          return {date:dateService.format('YYYY-MM-DD', value)}
+
       date_formatted: ->
-        return dateService.format('d/m/Y', dateService.createFromFormat('Y-m-d', @get('date')))
+        return dateService.format('LL', @get('date_obj'))
 
       value_formatted: ->
         return currencyService.format(@get('value'))
@@ -42,10 +46,13 @@ define ['components/model', 'services/date', 'services/currency'], (Model, dateS
       if !attrs.description
         errors.description = i18n.t('validate.description_required')
 
+      if !attrs.value || !Number(attrs.value)
+        errors.value = i18n.t 'validate.value_is_required'
+
       if !attrs.date
         errors.description = i18n.t('validate.date_required')
       else
-        date_obj = dateService.createFromFormat('Y-m-d', attrs.date)
+        date_obj = dateService.createFromFormat('YYYY-MM-DD', attrs.date)
         if !date_obj
           errors.start_date = i18n.t 'validate.invalid_date'
 

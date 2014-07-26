@@ -1,0 +1,58 @@
+<section role="region">
+    <header>
+        <a href="javascript:require('app').router.back();">
+            <span class="icon icon-close">back</span>
+        </a>
+        <menu type="toolbar">
+        </menu>
+        <h1>
+            <%= i18n.t('movement.edit') %>
+        </h1>
+    </header>
+    <section class="body-content">
+        <form id="form-parcel-update" onsubmit="return false;">
+            <div class="grid grid-pad">
+                <div class="row">
+                    <div class="col-1-1">
+                        <input data-bind="value:description,events:['keyup']" type="text" placeholder="<%= i18n.t('movement.description') %>" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-1-2">
+                        <div class="input input-currency">
+                            <div class="side-prefix">
+                                <%= require('services/currency').getPreffix() %>
+                            </div>
+                            <div class="side-decimal">
+                                <input placeholder="00" class="ignore-invalid" type="number" min="0" step="0.01" />
+                            </div>
+                            <div class="side-comma">
+                                <%= require('services/currency').getComma() %>
+                            </div>
+                            <div class="side-integer">
+                                <input placeholder="0" class="ignore-invalid" type="number" min="0" step="0.01" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-1-2">
+                        <input type="date" placeholder="<%= i18n.t('movement.date') %>" data-bind="value:date,events:['change','keyup']" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-1-1">
+                        <%= i18n.t('movement.paid') %> 
+                        <label class="pack-switch" style="padding-left:1rem;">
+                            <input type="checkbox" data-bind="checked:paid,events:['click','change']">
+                            <span></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <button class="danger btn-exclude"><%= i18n.t('delete') %></button>
+                </div>
+            </div>
+        </form>
+    </section>
+</section>

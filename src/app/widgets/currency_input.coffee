@@ -1,10 +1,12 @@
 define ->
   class CurrencyInput
-    constructor: (el) ->
+    constructor: (el, value) ->
       @el_decimal = el.find('.side-decimal input')
       @el_integer = el.find('.side-integer input')
       @events = _.extend {}, Backbone.Events
       @bind_all()
+      if value
+        @setValue value
 
     bind_all: ->
 
@@ -12,12 +14,18 @@ define ->
         @el_decimal.focus()
 
       @el_decimal.on 'focus', =>
-        @el_decimal.get(0).selectionStart = @el_decimal.val().length
-        @el_decimal.get(0).selectionEnd = @el_decimal.val().length
+        try
+          @el_decimal.get(0).selectionStart = @el_decimal.val().length
+          @el_decimal.get(0).selectionEnd = @el_decimal.val().length
+        catch err
+          console.log(err)
 
       @el_decimal.on 'click', =>
-        @el_decimal.get(0).selectionStart = @el_decimal.val().length
-        @el_decimal.get(0).selectionEnd = @el_decimal.val().length
+        try
+          @el_decimal.get(0).selectionStart = @el_decimal.val().length
+          @el_decimal.get(0).selectionEnd = @el_decimal.val().length
+        catch err
+          console.log(err)
 
       @el_decimal.on 'keypress', (event) =>
         value = @el_decimal.val()
@@ -45,14 +53,17 @@ define ->
             if event.keyCode != 9
               event.preventDefault()
 
-        @el_decimal.get(0).selectionStart = @el_decimal.val().length
-        @el_decimal.get(0).selectionEnd = @el_decimal.val().length
+        try
+          @el_decimal.get(0).selectionStart = @el_decimal.val().length
+          @el_decimal.get(0).selectionEnd = @el_decimal.val().length
+        catch err
+          console.log err
 
         setTimeout(=>
-          @trigger_change()
+          @triggerChange()
         , 100)
 
-    trigger_change: ->
+    triggerChange: ->
       integer = @el_integer.val() || 0
       decimal = @el_decimal.val() || 0
       value = ''
@@ -61,6 +72,17 @@ define ->
       else
         value = Number(integer)
       @events.trigger 'change', Number(value)
+
+    setValue: (value) ->
+      aux = String(Number(value)).split('.')
+      @el_integer.val aux.shift()
+      if aux.length > 0
+        decimal = aux.shift()
+        if String(decimal).length == 1
+          decimal = String(decimal) + '0'
+      else
+        decimal = '00'
+      @el_decimal.val decimal
 
     on: (event, callback) ->
       @events.on event, callback

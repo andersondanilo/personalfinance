@@ -16,6 +16,7 @@ define ['backbone_indexeddb'], (indexeddb) ->
           
           movementsStore.createIndex "movement_type_idx", "movement_type", {unique: false}
           movementsStore.createIndex "description_idx", "description", {unique: false}
+          movementsStore.createIndex "repeated_idx", "repeated", {unique: false}
 
           parcelsStore.createIndex "date_idx", "date", {unique: false}
           parcelsStore.createIndex "movement_id_idx", "movement_id", {unique: false}
