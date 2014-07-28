@@ -36,5 +36,4 @@ define ['moment'], (moment) ->
       d = new Date(dateObj.getYear(), dateObj.getMonth()+1, 0)
       return d.getDate()
 
-
   return new DateService

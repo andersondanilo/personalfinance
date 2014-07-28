@@ -54,7 +54,7 @@
                     <div class="col-1-1">
                         <%= i18n.t('movement.must_repeat') %> 
                         <label class="pack-switch" style="padding-left:1rem;">
-                            <input type="checkbox" data-bind="checked:repeated,events:['click','change']">
+                            <input type="checkbox" data-bind="checked:repeated_boolean,events:['click','change']">
                             <span></span>
                         </label>
                     </div>
@@ -83,6 +83,11 @@
                         </div>
                         <div class="col-1-2">
                             <input data-bind="value:parcel_count,events:['keyup','change']" type="number" placeholder="<%= i18n.t('movement.amount_of_repetitions') %>" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-1-1">
+                            <%= i18n.t('movement.You_can_leave_the_number_of_repetitions_blank_to_repeat_infinitely') %>
                         </div>
                     </div>
                 </div>

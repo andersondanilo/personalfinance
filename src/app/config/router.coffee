@@ -6,13 +6,13 @@ define [
 
   class Router extends Backbone.Router
     routes:
-      'index'   : 'income'
+      'index'   : 'expense'
       'income'  : 'income'
       'expense' : 'expense'
       'graph'   : 'graph'
       'insert/:type'  : 'insert'
       'parcel/update/:id': 'parcel_update'
-      '*actions': 'income'
+      '*actions': 'expense'
 
     start: ->
       $(window).on 'hashchange', =>
@@ -20,7 +20,7 @@ define [
       @startHistory()
 
     startHistory: ->
-      Backbone.history.start({pushState: false, root: 'income'})
+      Backbone.history.start({pushState: false, root: 'expense'})
 
     back: ->
       if window.history.length > 1

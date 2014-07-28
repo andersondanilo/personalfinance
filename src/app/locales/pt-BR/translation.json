@@ -25,7 +25,10 @@
     "expiration_day_is_required": "Dia de vencimento é necessária",
     "value_is_required": "Valor é necessário",
     "repetition_interval_is_required": "Intervalo de repetição é necessária",
-    "invalid_start_date": "Data de início inválido"
+    "invalid_start_date": "Data de início inválido",
+    "invalid_type_of_repeat_cycle": "Tipo inválido de ciclo de repetição",
+    "date_required": "Data necessária",
+    "invalid_date": "Data inválida"
   },
   "income": "Renda",
   "expense": "Despesa",
@@ -42,6 +45,24 @@
     "week": "Semana",
     "month": "Mês",
     "expiration_day": "Dia de vencimento",
-    "amount_of_repetitions": "Quantidade de repetições"
-  }
+    "amount_of_repetitions": "Quantidade de repetições",
+    "You_can_leave_the_number_of_repetitions_blank_to_repeat_infinitely": "Você pode deixar o número de repetições em branco para repetir infinitamente",
+    "edit": "Editar",
+    "date": "Data",
+    "paid": "Pago"
+  },
+  "No_results_found": "Não foram encontrados resultados",
+  "Next_30_days": "Próximos 30 dias",
+  "delete": "Excluir",
+  "successfully_added": "Adicionada com sucesso",
+  "edited_successfully": "Editado com sucesso",
+  "deleted_successfully": "Excluído com sucesso",
+  "update_only_this_parcel": "Atualizar apenas essa parcela",
+  "update_this_and_all_future": "Atualizar esta e todas as futuras",
+  "update_all_including_previous": "Atualizar todos, incluindo anterior",
+  "select_an_option": "Selecione uma opção",
+  "delete_only_this_parcel": "Excluir somente esta parcela",
+  "delete_this_and_all_future": "Excluir esta e todas as futuras",
+  "delete_all_including_previous": "Excluir todos, incluindo anterior",
+  "cancel": "Cancelar"
 }

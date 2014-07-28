@@ -77,7 +77,6 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'models/parcel', 'serv
                     else
                       app.router.navigate 'expense', trigger:true
                 }, (am) ->
-                  console.log 'vamos exibir => ', am
                   am.show()
           }
         ]
@@ -113,7 +112,7 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'models/parcel', 'serv
               callbacks.afterUpdate()
           }
 
-          if @movement.get('parcel_count') and @model.get('parcel_number') < @movement.get('parcel_count')
+          if @movement.get('is_infinite') || (@movement.get('repeated') && Number(@model.get('parcel_number')) < Number(@movement.get('parcel_count')))
             options.push {
               label: i18n.t('update_this_and_all_future'),
               action: ->
@@ -121,15 +120,13 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'models/parcel', 'serv
                 callbacks.afterUpdate()
             }
 
-          if @model.get('parcel_number') > 1
+          if Number(@model.get('parcel_number')) > 1
             options.push {
               label: i18n.t('update_all_including_previous'),
               action: ->
                 callbacks.updateAll()
                 callbacks.afterUpdate()
             }
-
-          console.log 'options.length => ', options.length
 
           if options.length == 1
             callbacks.updateOne()
@@ -156,7 +153,7 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'models/parcel', 'serv
             callbacks.afterDelete()
         }
 
-        if @movement.get('parcel_count') and @model.get('parcel_number') < @movement.get('parcel_count')
+        if @movement.get('is_infinite') || (@movement.get('repeated') && Number(@model.get('parcel_number')) < Number(@movement.get('parcel_count')))
           options.push {
             label: i18n.t('delete_this_and_all_future'),
             action: ->
@@ -164,7 +161,7 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'models/parcel', 'serv
               callbacks.afterDelete()
           }
 
-        if @model.get('parcel_number') > 1
+        if Number(@model.get('parcel_number')) > 1
           options.push {
             label: i18n.t('delete_all_including_previous'),
             action: ->
@@ -189,18 +186,8 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'models/parcel', 'serv
         @movement.fetch {
           success: ->
             doSuccess()
-          error: (model, message) ->
-            console.log 'error', message
         }
       else
         doSuccess()
 
   new UpdateView()
-
-'''
-Qual o problema?
-- Oferecer 3 tipos de atualização, de acordo com a cobrança
-  Quais as opções?
-  - 3 callbacks (talvez repetindo o script)
-  - 1 Classe responsável por fazer a atualização de acordo com o tipo
-'''

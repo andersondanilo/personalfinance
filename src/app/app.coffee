@@ -18,22 +18,26 @@ define [
     'underscore',
     'zepto',
     'i18n',
+    'backbone',
     'config/i18n',
     'views/main',
     'config/router',
     'widgets/layer_manager',
     'widgets/status',
     'text!templates/main/index.html',
+    'components/logger',
     'epoxy'], (
       _,
       $,
       i18n,
+      Backbone,
       conf_i18n,
       main,
       router,
       LayerManager,
       Status,
       main_template_raw,
+      Logger, # Only Pre-load
       epoxy
 ) ->
   class App
@@ -42,7 +46,12 @@ define [
       @status = new Status $('#app-status')
       @events = _.extend {}, Backbone.Events
       @router = router
-      
+
+      _.delay (->
+        require ['services/movement'], (movementService) ->
+          movementService.processAllInfinite()
+      ), 500
+
       i18n.init conf_i18n, =>
         router.start()
 

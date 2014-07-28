@@ -4,7 +4,7 @@ define ['backbone', 'underscore', 'collections/movement', 'collections/parcel', 
     _saveFrom: (model_target, model_copied, callbacks) ->
       for name in ['description', 'value', 'paid']
         if model_copied.hasChanged(name)
-          if model_target.get(name) != model_copied.get(name)
+          if String(model_target.get(name)) != String(model_copied.get(name))
             set = {}
             set[name] = model_copied.get name
             model_target.set(set)
@@ -82,13 +82,44 @@ define ['backbone', 'underscore', 'collections/movement', 'collections/parcel', 
           }
       }
 
-    saveNext: (model, callbacks) ->
-      @_saveByCond model, callbacks, (m) =>
-        return m.get('parcel_number') >= model.get('parcel_number')
+    saveNext: (model, callbacks={}) ->
+      @_refreshModelChanged model,
+        success: =>
+          @_saveByCond model, callbacks, (m) =>
+            return m.get('parcel_number') >= model.get('parcel_number')
+        error: ->
+          if callbacks.error
+            callbacks.error()
+
 
     saveAll: (model, callbacks) ->
-      @_saveByCond model, callbacks, (m) =>
-        return true
+      @_refreshModelChanged model,
+        success: =>
+          @_saveByCond model, callbacks, (m) =>
+            return true
+        error: ->
+          if callbacks.error
+            callbacks.error()
+
+    _refreshModelChanged: (model, callbacks={}) ->
+      if model.get('id')
+        model2 = new Parcel id:model.get('id')
+
+        model2.fetch
+          success: ->
+            for k of model.attributes
+              if String(model.get(k)) != String(model2.get(k))
+                model.changed[k] = model.get(k)
+                model._previousAttributes = model2.get(k)
+
+            if callbacks.success
+              callbacks.success()
+          error: ->
+            if callbacks.error
+              callbacks.error()
+      else
+        if callbacks.success
+          callbacks.success()
 
     _removeMovementFromParcel: (model_copied, callbacks) ->
       model_target = new Movement {id:model_copied.get('movement_id')}

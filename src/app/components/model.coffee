@@ -3,7 +3,6 @@ define ['backbone', 'epoxy', 'config/database', 'app'], (Backbone, epoxy, databa
   class Model extends Backbone.Epoxy.Model
     initialize: (options) ->
       if @storeName?
-        window.x = @storeName
         modelName = @storeName.substr(0, Number(@storeName.length) - 1)
         @on 'sync', ->
           app.events.trigger("sync:#{modelName}", this)

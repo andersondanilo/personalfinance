@@ -144,3 +144,37 @@ section[role="status"].status-container {
     top:-2px;
   }
 }
+
+.parcel-list {
+  padding-bottom: 4rem;
+}
+
+.parcel-list-bottom {
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  padding: 1rem;
+  border-top:1px solid rgb(0, 170, 204);
+  background: rgba(255, 255, 255, 0.8);
+  z-index:2;
+
+  .side-left {
+    float:left;
+    font-size:1.5rem;
+    line-height:2rem;
+  }
+
+  .side-right {
+    float:right;
+    font-size:2rem;
+    line-height:2rem;
+    font-weight:bold;
+  }
+}
+
+.not-found {
+  padding:2rem;
+  text-align:center;
+  font-size:2rem;
+}

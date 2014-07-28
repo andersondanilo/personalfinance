@@ -19,9 +19,8 @@ define ['zepto', 'underscore', 'components/view', 'widgets/tab_manager', 'widget
         i18n = require 'i18n'
 
         @tabs         = new TabManager($('#main-tab'))
-        @tabs.add i18n.t('income'), 'income'
         @tabs.add i18n.t('expense'), 'expense'
-        #@tabs.add i18n.t('graph'), 'graph'
+        @tabs.add i18n.t('income'), 'income'
 
         @layers       = new LayerManager($('#content-layer-container'))
         @toolbar      = new Toolbar($('#main-toolbar'))

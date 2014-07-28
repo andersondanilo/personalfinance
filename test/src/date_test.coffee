@@ -3,16 +3,16 @@ dateService  = requirejs 'services/date'
 describe 'DateService', ->
   it 'Should format date', ->
     date = new Date(2014, 2, 5)
-    str  = dateService.format('Y-m-d', date)
+    str  = dateService.format('YYYY-MM-DD', date)
     expect(str).to.be.eql('2014-03-05')
 
     date = new Date(2014, 11, 30)
-    str  = dateService.format('d/m/Y', date)
+    str  = dateService.format('DD/MM/YYYY', date)
     expect(str).to.be.eql('30/12/2014')
 
   it 'Should create from format', ->
     date   = new Date(2014, 11, 30)
-    result = dateService.createFromFormat('d/m/Y', '30/12/2014')
+    result = dateService.createFromFormat('DD/MM/YYYY', '30/12/2014')
     expect(result).to.be.eql(date)
 
   it 'Should add month', ->

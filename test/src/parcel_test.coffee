@@ -86,6 +86,8 @@ describe 'ParcelService', ->
                           expect(parcels[4].get('date')).to.be.eql('2014-05-15')
                           done()
 
+                        expect(parcels.length).to.be.eql(5)
+
                         for k of parcels
                           do (k) =>
                             p = parcels[k]

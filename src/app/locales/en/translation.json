@@ -25,7 +25,10 @@
     "value_is_required": "Value is required",
     "expiration_day_is_required": "Expiration day is required",
     "repetition_interval_is_required": "Repetition interval is required",
-    "invalid_start_date": "Invalid start date"
+    "invalid_start_date": "Invalid start date",
+    "invalid_type_of_repeat_cycle": "Invalid type of repeat cycle",
+    "date_required": "Date required",
+    "invalid_date": "Invalid date"
   },
   "income": "Income",
   "expense": "Expense",
@@ -42,6 +45,24 @@
     "week": "Week",
     "month": "Month",
     "expiration_day": "Expiration day",
-    "amount_of_repetitions": "Amount of repetitions"
-  }
+    "amount_of_repetitions": "Amount of repetitions",
+    "You_can_leave_the_number_of_repetitions_blank_to_repeat_infinitely": "You can leave the number of repetitions blank to repeat infinitely",
+    "edit": "Edit",
+    "date": "Date",
+    "paid": "Paid"
+  },
+  "No_results_found": "No results found",
+  "Next_30_days": "Next 30 days",
+  "delete": "Delete",
+  "successfully_added": "Successfully added",
+  "edited_successfully": "Edited successfully",
+  "deleted_successfully": "Deleted successfully",
+  "update_only_this_parcel": "Update only this parcel",
+  "update_this_and_all_future": "Update this and all future",
+  "update_all_including_previous": "Update all including previous",
+  "select_an_option": "Select an option",
+  "delete_only_this_parcel": "Delete only this parcel",
+  "delete_this_and_all_future": "Delete this and all future",
+  "delete_all_including_previous": "Delete all including previous",
+  "cancel": "Cancel"
 }

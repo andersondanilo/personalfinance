@@ -24,7 +24,10 @@
     "expiration_day_is_required": "Se requiere día de caducidad",
     "repetition_interval_is_required": "Se requiere intervalo de repetición",
     "value_is_required": "Se requiere valor",
-    "invalid_start_date": "Fecha de inicio no válido"
+    "invalid_start_date": "Fecha de inicio no válido",
+    "date_required": "Fecha requerida",
+    "invalid_date": "Fecha no válida",
+    "invalid_type_of_repeat_cycle": "Tipo no válido del ciclo de repetición"
   },
   "income": "Ingresos",
   "expense": "Gasto",
@@ -41,7 +44,25 @@
     "week": "Semana",
     "month": "Mes",
     "expiration_day": "Día de vencimiento",
-    "amount_of_repetitions": "Cantidad de repeticiones"
+    "amount_of_repetitions": "Cantidad de repeticiones",
+    "edit": "Editar",
+    "date": "Fecha",
+    "paid": "Pagado",
+    "You_can_leave_the_number_of_repetitions_blank_to_repeat_infinitely": "Puede dejar el número de repeticiones en blanco para repetir infinitamente"
   },
-  "save": "Guardar"
+  "save": "Guardar",
+  "No_results_found": "No se han encontrado resultados",
+  "Next_30_days": "Próximos 30 días",
+  "delete": "Borrar",
+  "successfully_added": "Agregado con éxito",
+  "edited_successfully": "Editado correctamente",
+  "deleted_successfully": "Eliminado correctamente",
+  "update_only_this_parcel": "Actualizar sólo esta parcela",
+  "update_this_and_all_future": "Actualizar esta y todas las futuras",
+  "update_all_including_previous": "Actualizar todos incluyendo anterior",
+  "select_an_option": "Seleccione una opción",
+  "delete_only_this_parcel": "Eliminar sólo esta parcela",
+  "delete_this_and_all_future": "Eliminar este y todos los futuros",
+  "delete_all_including_previous": "Eliminar todos incluyendo anterior",
+  "cancel": "Cancelar"
 }

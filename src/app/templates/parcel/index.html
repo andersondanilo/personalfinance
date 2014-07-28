@@ -1,3 +1,14 @@
 <section data-type="list" class="parcel-list">
     <ul data-bind="collection:$collection"></ul>
+    <div class="not-found" data-bind="toggle:empty">
+        <%= i18n.t('No_results_found') %>
+    </div>
+    <div class="parcel-list-bottom" style="">
+        <div class="side-left">
+            <%= i18n.t('Next_30_days') %>
+        </div>
+        <div class="side-right" data-bind="text:sum_display,css:{color:color}">
+
+        </div>
+    </div>
 </section>

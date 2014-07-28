@@ -5,18 +5,18 @@ define ['components/model', 'services/date', 'services/currency', 'collections/p
     storeName: 'movements'
 
     defaults:
-      id: '',
-      movement_type: 'expense', # income | expense
-      parcel_count: '',
-      repeated: false,
-      cycle_type: 'month', # day| week | month
-      cycle_interval: '1',
-      expiration_day: '',
-      create_date: '',
-      update_date: '',
-      status: '1',
-      start_date: dateService.format('YYYY-MM-DD'),
-      value: '',
+      id: ''
+      movement_type: 'expense' # income | expense
+      parcel_count: ''
+      repeated: 0
+      cycle_type: 'month' # day| week | month
+      cycle_interval: '1'
+      expiration_day: ''
+      create_date: ''
+      update_date: ''
+      status: '1'
+      start_date: dateService.format('YYYY-MM-DD')
+      value: ''
       description: ''
 
     computeds:
@@ -25,6 +25,17 @@ define ['components/model', 'services/date', 'services/currency', 'collections/p
           return ''
         else
           return 'none'
+
+      repeated_boolean:
+        deps: ['repeated']
+        get: ->
+          console.log 'repeated', @get('repeated'), !!@get('repeated')
+          return !!@get('repeated')
+        set: (value) ->
+          if value
+            return {repeated:1}
+          else
+            return {repeated:0}
 
       is_infinite: ->
         return @get('repeated') and not @get('parcel_count')
