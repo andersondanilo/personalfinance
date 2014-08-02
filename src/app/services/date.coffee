@@ -1,4 +1,4 @@
-define ['moment'], (moment) ->
+define ['moment', 'i18n'], (moment, i18n) ->
 
   class DateService
 
@@ -8,6 +8,7 @@ define ['moment'], (moment) ->
     format: (format, date) ->
       if not date
         date = new Date()
+      moment.lang(i18n.lng())
       moment(date).format(format)
 
     addMonth: (dateObj, months=1) ->

@@ -6,7 +6,7 @@ define ->
       null
 
     getPreffix: ->
-      return 'R$'
+      return '$'
 
     getComma: ->
       return ','

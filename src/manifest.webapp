@@ -1,12 +1,12 @@
 {
-  "version": "1.0",
+  "version": "1.1",
   "name": "Personal Finance",
-  "description": "Contas a Pagar e Contas a Receber voltadas para o uso pessoal",
-  "launch_path": "index.html",
+  "description": "Expense and Income for personal use",
+  "launch_path": "/index.html",
   "icons": {
-    "16": "/icons/logo16.png",
-    "48": "/icons/logo48.png",
-    "128": "/icons/logo128.png"
+    "48": "/assets/icons/logo48.png",
+    "64": "/assets/icons/logo64.png",
+    "128": "/assets/icons/logo128.png"
   },
   "developer": {
     "name": "Anderson Danilo",
@@ -14,7 +14,10 @@
   },
   "locales": {
     "pt-BR": {
-      "description": "O jeito mais rápido de assistir anime"
+      "description": "Despesas e Receitas para uso pessoal"
+    },
+    "es": {
+      "description": "Gasto e Ingreso para uso personal"
     }
   },
   "default_locale": "en"
