@@ -1,10 +1,18 @@
-<section role="region">
+<section data-type="sidebar">
     <header>
-        <!--
-        <button>
-            <span class="icon icon-menu">menu</span>
-        </button>
-        -->
+        <h1><%= i18n.t('Menu') %></h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#configuration"><%= i18n.t('Configuration') %></a></li>
+        </ul>
+    </nav>
+</section>
+
+<section id="drawer" role="region" class="main-region full-height">
+    <header>
+        <a href="#"><span class="icon icon-menu">hide sidebar</span></a>
+        <a href="#drawer"><span class="icon icon-menu">show sidebar</span></a>
         <menu id="main-toolbar" type="toolbar">
         </menu>
         <h1>

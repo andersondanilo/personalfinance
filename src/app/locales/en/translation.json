@@ -28,7 +28,11 @@
     "invalid_start_date": "Invalid start date",
     "invalid_type_of_repeat_cycle": "Invalid type of repeat cycle",
     "date_required": "Date required",
-    "invalid_date": "Invalid date"
+    "invalid_date": "Invalid date",
+    "currency_required": "Currency required",
+    "the_limit_are_3_character": "The limit are 3 character",
+    "decimal_separator_required": "Decimal separator required",
+    "thousands_separator_required": "Thousands separator required"
   },
   "income": "Income",
   "expense": "Expense",
@@ -64,5 +68,11 @@
   "delete_only_this_parcel": "Delete only this parcel",
   "delete_this_and_all_future": "Delete this and all future",
   "delete_all_including_previous": "Delete all including previous",
-  "cancel": "Cancel"
+  "cancel": "Cancel",
+  "configuration": "Configuration",
+  "currency": "Currency",
+  "decimal": "Decimal",
+  "thousands": "Thousands",
+  "Menu": "Menu",
+  "Configuration": "Configuration"
 }

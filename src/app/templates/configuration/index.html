@@ -1,0 +1,47 @@
+<section class="skin-dark" role="region">
+    <header>
+        <a href="#expense">
+            <span class="icon icon-back">back</span>
+        </a>
+        <menu type="toolbar">
+        </menu>
+        <h1>
+            <%= i18n.t('configuration') %>
+        </h1>
+    </header>
+    <section class="body-content">
+        <form id="form-configuration">
+            <div class="grid grid-pad">
+                <div class="row">
+                    <div class="col-1-1">
+                        <%= i18n.t('currency') %>
+                    </div>
+                    <div class="col-1-1">
+                        <input data-bind="value:currency,events:['keyup','change']" type="text" maxlength="3" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-1-2">
+                        <%= i18n.t('decimal') %>
+                    </div>
+                    <div class="col-1-2">
+                        <%= i18n.t('thousands') %>
+                    </div>
+                    <div class="col-1-2">
+                        <select data-bind="value:decimal_separator,events:['keyup','change']">
+                            <option value=",">,</option>
+                            <option value=".">.</option>
+                        </select>
+                    </div>
+                    <div class="col-1-2">
+                        <select data-bind="value:thousands_separator,events:['keyup','change']">
+                            <option value=".">.</option>
+                            <option value=",">,</option>
+                            <option value=" "> </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+</section>

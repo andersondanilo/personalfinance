@@ -1,4 +1,4 @@
-define ['zepto', 'underscore', 'components/view', 'i18n', 'views/main', 'collections/parcel', 'services/currency', 'components/model', 'services/date'], ($, _, View, i18n, main, ParcelCollection, currencyService, Model, dateService) ->
+define ['zepto', 'underscore', 'components/view', 'i18n', 'views/main', 'collections/parcel', 'services/currency', 'components/model', 'services/date', 'services/configuration'], ($, _, View, i18n, main, ParcelCollection, currencyService, Model, dateService, configurationService) ->
 
   class IndexView extends View
     @instances = {}
@@ -43,7 +43,7 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'views/main', 'collect
       @sumModel = new (Model.extend {
         defaults:
           sum: null
-          empty: true
+          empty: false
         computeds:
           sum_display: 
             deps: ['sum']
@@ -75,7 +75,8 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'views/main', 'collect
             @collection.set @collection.where({'movement_type':@movement_type})
             sum = 0
             for model in @collection.models
-              sum += model.get 'value'
+              if not model.get('paid')
+                sum += model.get 'value'
             @sumModel.set {'sum':sum}
             @sumModel.set {'empty':@collection.models.length==0}
         }
@@ -108,8 +109,11 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'views/main', 'collect
           bindings: "data-bind"
           model: @sumModel
           initialize: ->
-            @collection = collection
+            @collection = collection            
 
         @listView = new ListView()
+
+        configurationService.on 'sync', =>
+          @listView.applyBindings()
 
   return IndexView

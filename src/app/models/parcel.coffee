@@ -19,6 +19,9 @@ define ['components/model', 'services/date', 'services/currency'], (Model, dateS
 
     computeds:
       color: ->
+        if @get('paid')
+          return '#666666'
+
         if @get('movement_type') == 'income'
           return '#2EB944'
         else

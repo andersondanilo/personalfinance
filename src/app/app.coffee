@@ -1,14 +1,15 @@
 require.config {
   baseUrl: if typeof(APP_BASE_URL) == 'undefined' then './app' else APP_BASE_URL,
   paths:
-    text:       '../vendor/require/text'
-    underscore: '../vendor/underscore/underscore'
-    backbone:   '../vendor/backbone/backbone'
-    epoxy:      '../vendor/backbone/epoxy'
-    backbone_indexeddb:  '../vendor/backbone/indexeddb'
-    i18n:       '../vendor/i18next/i18next'
-    zepto:      '../vendor/zepto/zepto'
-    moment:      '../vendor/moment/moment'
+    text:         '../vendor/require/text'
+    underscore:   '../vendor/underscore/underscore'
+    backbone:     '../vendor/backbone/backbone'
+    epoxy:        '../vendor/backbone/epoxy'
+    indexeddb:    '../vendor/backbone/indexeddb'
+    localstorage: '../vendor/backbone/localstorage'
+    i18n:         '../vendor/i18next/i18next'
+    zepto:        '../vendor/zepto/zepto'
+    moment:       '../vendor/moment/moment'
   map:
     '*':
       jquery: 'zepto'
@@ -26,6 +27,7 @@ define [
     'widgets/status',
     'text!templates/main/index.html',
     'components/logger',
+    'components/view',
     'epoxy'], (
       _,
       $,
@@ -38,6 +40,7 @@ define [
       Status,
       main_template_raw,
       Logger, # Only Pre-load
+      View,
       epoxy
 ) ->
   class App

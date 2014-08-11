@@ -40,7 +40,8 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'models/movement', 'co
         @toolbar = new Toolbar(@el.find('menu[type=toolbar]').first())
         @toolbar.set [
           {
-            'save': ->
+            'save': =>
+              @el.find('input').trigger('change')
               # Temos que validar primeiro
               errors = model.validate model.toJSON()
               if errors

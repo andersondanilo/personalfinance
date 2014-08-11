@@ -29,7 +29,6 @@ define ['components/model', 'services/date', 'services/currency', 'collections/p
       repeated_boolean:
         deps: ['repeated']
         get: ->
-          console.log 'repeated', @get('repeated'), !!@get('repeated')
           return !!@get('repeated')
         set: (value) ->
           if value

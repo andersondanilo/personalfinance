@@ -22,7 +22,7 @@ define ['zepto', 'underscore', 'backbone', 'i18n'], ($, _, Backbone, i18n) ->
       return layer
 
     exist: (oldEl) ->
-      if !oldEl
+      if !oldEl || !oldEl.get
         return false
       for el in @el.children('.layer')
         if el == oldEl.get(0)

@@ -14,6 +14,7 @@ $primary-constrast-color : white;
 @import 'resources/status.css';
 @import 'resources/lists.css';
 @import 'resources/action_menu.css';
+@import 'resources/drawer.css';
 
 @import 'simplegrid.css';
 
@@ -30,6 +31,16 @@ html, body {
 h2 {
   padding-top:1rem;
   padding-bottom:1rem;
+}
+
+.main-region {
+  background:white;
+}
+
+.full-height, section[role="region"].full-height {
+  position:absolute;
+  bottom:0;
+  top:0;
 }
 
 #main-tab {
@@ -176,5 +187,19 @@ section[role="status"].status-container {
 .not-found {
   padding:2rem;
   text-align:center;
-  font-size:2rem;
+  font-size:1.5rem;
+}
+
+.item-description, .item-description * {
+  vertical-align: middle;
+}
+
+.paid-box {
+  color:white;
+  background-color:green;
+  font-weight:bold;
+  padding:0.5rem;
+  font-size:0.8rem;
+  border-radius:4px;
+  text-transform: uppercase;
 }

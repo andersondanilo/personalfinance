@@ -27,7 +27,11 @@
     "invalid_start_date": "Fecha de inicio no válido",
     "date_required": "Fecha requerida",
     "invalid_date": "Fecha no válida",
-    "invalid_type_of_repeat_cycle": "Tipo no válido del ciclo de repetición"
+    "invalid_type_of_repeat_cycle": "Tipo no válido del ciclo de repetición",
+    "currency_required": "Requerido moneda",
+    "decimal_separator_required": "Separador decimal requiere",
+    "the_limit_are_3_character": "El límite es de 3 caracteres",
+    "thousands_separator_required": "Separador de miles requiere"
   },
   "income": "Ingresos",
   "expense": "Gasto",
@@ -64,5 +68,11 @@
   "delete_only_this_parcel": "Eliminar sólo esta parcela",
   "delete_this_and_all_future": "Eliminar este y todos los futuros",
   "delete_all_including_previous": "Eliminar todos incluyendo anterior",
-  "cancel": "Cancelar"
+  "cancel": "Cancelar",
+  "currency": "Moneda",
+  "Menu": "Menú",
+  "thousands": "Miles",
+  "configuration": "Configuración",
+  "Configuration": "Configuración",
+  "decimal": "Decimal"
 }

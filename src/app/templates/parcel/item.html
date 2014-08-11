@@ -2,6 +2,9 @@
     <aside class="pack-end">
         <p data-bind="text:value_formatted,css:{color:color}"></p>
     </aside>
-    <p data-bind="text:description"></p>
+    <p class="item-description">
+        <span data-bind="text:description"></span>
+        <span data-bind="toggle:paid" class="paid-box"><%= require('i18n').t('movement.paid') %> </span>
+    </p>
     <p data-bind="text:date_formatted"></p>
 </a>

@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"number",
+				"number_result"
+			],
+			[
+				"form",
+				"formatThousands"
+			],
+			[
 				"mo",
 				"movement_type"
 			],
@@ -506,24 +514,40 @@
 			[
 				"http_bu",
 				"http_build_query"
-			],
-			[
-				"Con",
-				"ConfirmarRenovarForm"
-			],
-			[
-				"mdelPro",
-				"modelProdutoForma"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "src/manifest.webapp",
+			"file": "src/app/templates/parcel/index.html",
 			"settings":
 			{
-				"buffer_size": 576,
+				"buffer_size": 466,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/assets/styles/main.scss",
+			"settings":
+			{
+				"buffer_size": 3848,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/app/views/parcel/index.coffee",
+			"settings":
+			{
+				"buffer_size": 3418,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Cakefile",
+			"settings":
+			{
+				"buffer_size": 9790,
 				"line_ending": "Unix"
 			}
 		}
@@ -531,9 +555,45 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 72.0,
+		"height": 201.0,
 		"selected_items":
 		[
+			[
+				"Refres",
+				"Project: Refresh Folders"
+			],
+			[
+				"Ref",
+				"Project: Refresh Folders"
+			],
+			[
+				"Install",
+				"Package Control: Install Package"
+			],
+			[
+				"Instal",
+				"Package Control: Install Package"
+			],
+			[
+				"List P",
+				"Package Control: List Packages"
+			],
+			[
+				"List Pac",
+				"Package Control: List Packages"
+			],
+			[
+				"List ",
+				"Package Control: List Packages"
+			],
+			[
+				"Package",
+				"Package Control: Discover Packages"
+			],
+			[
+				"Pack",
+				"Package Control: List Packages"
+			],
 			[
 				"intall",
 				"Package Control: Install Package"
@@ -571,11 +631,15 @@
 				"Preferences: Browse Packages"
 			]
 		],
-		"width": 593.0
+		"width": 449.0
 	},
 	"console":
 	{
-		"height": 125.0
+		"height": 125.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
 	},
 	"distraction_free":
 	{
@@ -588,145 +652,145 @@
 	},
 	"file_history":
 	[
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/manifest.webapp",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/manifest.webapp",
-		"/home/anderson/Documents/Projetos/personalfinance/app/package.json",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/services/date.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/config/router.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/views/main.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/views/parcel/index.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/assets/styles/main.scss",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/templates/parcel/index.html",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/templates/main/index.html",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/index.html",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/config/database.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/templates/parcel/item.html",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/models/parcel.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/components/model.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/services/currency.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/templates/movement/insert.html",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/models/movement.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/app.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/services/parcel.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/templates/movement/insert.html",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/services/movement.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/components/logger.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/views/parcel/update.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/vendor/backbone/epoxy.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/app.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/test/src/movement_test.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/components/model.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/services/movement.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/test/src/parcel_test.coffee",
-		"/home/anderson/Documents/Projetos/indexeddb-backbonejs-adapter/backbone-indexeddb.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/test/lib/parcel_test.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/test/src/date_test.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/templates/parcel/update.html",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/models/parcel.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/test/lib/movement_test.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/views/movement/insert.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/widgets/toolbar.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/views/parcel/update.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/templates/parcel/update.html",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/vendor/backbone/backbone.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/components/view.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/components/view.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/widgets/action_menu.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/vendor/backbone/epoxy.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/test/lib/date_test.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/vendor/moment/locale/pt-br.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/vendor/moment/locale/es.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/vendor/moment/moment.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/test/lib/test_helper.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/test/vendor/mocha.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/test/src/test_helper.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/vendor/backbone/backbone.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/test/mocha.html",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/services/parcel.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/services/date.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/Cakefile",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/widgets/action_menu.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/collections/parcel.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/widgets/currency_input.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/config/router.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/widgets/currency_input.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/widgets/layer_manager.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/widgets/layer_manager.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/assets/styles/simplegrid.css",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/assets/styles/resources/input_areas.css",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/assets/styles/resources/input_areas.css",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/views/income/index.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/templates/movement/index.html",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/templates/movement/item.html",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/views/movement/index.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/assets/styles/resources/lists.css",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/widgets/tab_manager.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/widgets/status.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/components/collection.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/routes/router.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/views/movement/insert.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/vendor/zepto/zepto.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/assets/styles/resources/status.css",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/widgets/status.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/assets/styles/resources/status.css",
-		"/home/anderson/Documents/Projetos/personalfinance/app/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/tar-pack/node_modules/fstream/lib/collect.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/config/database.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/services/currency.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/models/movement.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/collections/movement.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/vendor/backbone/indexeddb.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/collections/movement.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/collections/parcel.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/config/i18n.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/config/i18n.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/test/movement_test.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/test/test_helper.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/vendor/backbone/indexeddb.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/presenters/movement/insert.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/presenters/income/index.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/presenters/main.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/components/presenter.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/collections/nature.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/components/collection.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/models/entities/movement.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/models/collections/movement.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/models/collections/parcel.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/models/entities/parcel.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/models/entities/movement.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/models/entities/parcel.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/components/tab_manager.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/assets/styles/resources/switches.css",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/views/movement/insert.html",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/index.html",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/vendor/require/require.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/views/movement/insert.html",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/presenters/movement/insert.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/locales/es/translation.json",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/models/collections/nature.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/locales/en/translation.json",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/locales/es/translation.json",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/locales/pt-BR/translation.json",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/locales/en/translation.json",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/locales/pt-BR/translation.json",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/app/models/collections/nature.js",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/components/toolbar.coffee",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/models/entities/nature.coffee",
-		"/home/anderson/.config/sublime-text-2/Packages/User/CoffeeScript.sublime-settings",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/app/views/main/index.html",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/assets/styles/resources/headers.css",
-		"/home/anderson/Documents/Projetos/personalfinance/app/src/assets/styles/resources/headers.css",
-		"/home/anderson/Documents/Projetos/personalfinance/app/build/assets/styles/main.css"
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/models/parcel.coffee",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/assets/styles/simplegrid.css",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/collections/configuration.coffee",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/services/configuration.coffee",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/templates/parcel/item.html",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/views/parcel/index.coffee",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/templates/parcel/index.html",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/templates/main/index.html",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/templates/configuration/index.html",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/index.html",
+		"/home/anderson/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/personalfinance_app.sublime-project",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/build/index.html",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/Cakefile",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/assets/styles/main.scss",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/chai/CONTRIBUTING.md",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/build/app/templates/parcel/index.html",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/build/app/templates/parcel/item.html",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/mocha/node_modules/jade/lib/inline-tags.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/templates/parcel/update.html",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/build/app/templates/parcel/update.html",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/sqlite3/node_modules/node-pre-gyp/lib/util/abi_crosswalk.json",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/tar-pack/node_modules/readable-stream/node_modules/core-util-is/README.md",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/collections/parcel.coffee",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/.sass-cache/afe1a5932795af9e3d62082a713b8f67a74eb4d8/main.scssc",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/exec-sync/node_modules/ffi/deps/pthreads-win32/sched_setscheduler.c",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/mocha/node_modules/jade/lib/self-closing.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/sqlite3/sqlite3.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/mocha/lib/template.html",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/test/lib/test_helper.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/chai/lib/chai/utils/getEnumerableProperties.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/widgets/toolbar.coffee",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/models/movement.coffee",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/build/app/components/model.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/build/app/views/parcel/index.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/views/parcel/update.coffee",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/services/currency.coffee",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/components/logger.coffee",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/views/configuration/index.coffee",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/hawk/lib/server.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/.bin/semver",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/build/app/services/currency.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/build/app/collections/configuration.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/views/main.coffee",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/components/view.coffee",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/build/app/services/configuration.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/build/app/views/configuration/index.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/exec-sync/node_modules/ffi/deps/libffi/testsuite/libffi.call/cls_uchar.c",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/models/configuration.coffee",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/build/app/models/movement.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/build/app/models/configuration.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/build/app/templates/configuration/index.html",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/vendor/backbone/backbone.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/vendor/backbone/localstorage.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/tar/test/00-setup-fixtures.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/build/app/components/collection.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/exec-sync/node_modules/ffi/deps/libffi/src/closures.c",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/exec-sync/node_modules/ffi/deps/libffi/testsuite/libffi.call/closure_loc_fn0.c",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/tar/node_modules/fstream/lib/collect.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/exec-sync/node_modules/ffi/lib/dynamic_library.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/exec-sync/node_modules/ffi/deps/libffi/src/pa/linux.S",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/build/app/collections/movement.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/request/node_modules/hawk/lib/client.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/exec-sync/node_modules/ffi/deps/pthreads-win32/README.CV",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/sqlite3/node_modules/node-pre-gyp/node_modules/tar/node_modules/fstream/lib/socket-reader.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/exec-sync/node_modules/ffi/deps/libffi/configure.host",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/services/date.coffee",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/components/collection.coffee",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/build/app/views/configuration/.subl85d.tmp",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/build/app/app.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/widgets/layer_manager.coffee",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/templates/movement/insert.html",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/exec-sync/node_modules/ffi/deps/pthreads-win32/COPYING.LIB",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/.bin/coffee",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/js-beautify/node_modules/config-chain/node_modules/proto-list/proto-list.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/js-beautify/node_modules/config-chain/test/ignore-unfound-file.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/js-beautify/node_modules/config-chain/node_modules/proto-list/README.md",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/exec-sync/node_modules/ffi/deps/libffi/config.guess",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/exec-sync/node_modules/ffi/deps/libffi/config.sub",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/build/vendor/backbone/localstorage.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/exec-sync/node_modules/ffi/deps/pthreads-win32/config.h",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/build/app/views/movement/insert.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/js-beautify/node_modules/config-chain/test/find-file.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/views/movement/insert.coffee",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/config/router.coffee",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/js-beautify/node_modules/config-chain/index.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/exec-sync/node_modules/ffi/lib/foreign_function_var.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/js-beautify/node_modules/config-chain/test/env.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/js-beautify/node_modules/config-chain/test/save.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/chokidar/node_modules/recursive-readdir/index.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/mocha-lcov-reporter/lib/index.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/mocha-lcov-reporter/index.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/chai/index.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/Gruntfile.coffee",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/Gruntfile.coffe",
+		"/home/anderson/.config/sublime-text-3/Packages/User/Sass.sublime-settings",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/config/database.coffee",
+		"/home/anderson/.config/sublime-text-3/Packages/User/CoffeeScript.sublime-settings",
+		"/home/anderson/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/assets/styles/resources/tabs.css",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/assets/styles/resources/drawer.css",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/build/app/widgets/layer_manager.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/build/app/templates/main/index.html",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/manifest.webapp",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/build/manifest.webapp",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/package.json",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/config/router.coffee",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/templates/main/index.html",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/index.html",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/components/model.coffee",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/app.coffee",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/services/parcel.coffee",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/build/app/templates/movement/insert.html",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/services/movement.coffee",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/build/vendor/backbone/epoxy.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/test/src/movement_test.coffee",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/build/app/services/movement.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/test/src/parcel_test.coffee",
+		"/home/anderson/Documentos/Projetos/indexeddb-backbonejs-adapter/backbone-indexeddb.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/test/lib/parcel_test.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/test/src/date_test.coffee",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/build/app/models/parcel.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/test/lib/movement_test.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/build/app/views/parcel/update.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/build/app/components/view.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/widgets/action_menu.coffee",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/vendor/backbone/epoxy.js",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/test/lib/date_test.js"
 	],
 	"find":
 	{
-		"height": 49.0
+		"height": 44.0
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 114.0,
 		"where_history":
 		[
-			"/home/anderson/Documents/Projetos/personalfinance/app/src/app",
+			"/home/anderson/Documentos/Projetos/personalfinance/app/src/app",
 			"/home/anderson/Sites/site-transporte/www",
 			"/home/anderson/Sites/site-trasporte/www",
 			"/home/anderson/Sites/site-atdesp/wwwroot",
@@ -738,6 +802,32 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"indexOf",
+			"#",
+			"clean",
+			"paid",
+			"sum =",
+			"console.log",
+			"collection",
+			"trigger",
+			"console",
+			"model",
+			".log",
+			".layer",
+			"oldEl",
+			"InsertView",
+			"stdout",
+			"exec ",
+			"exec(",
+			"execOut",
+			"eachFile",
+			"->",
+			"z-index",
+			":target",
+			"target",
+			"layer",
+			"position",
+			"date",
 			"())\n",
 			"income",
 			"console.log",
@@ -839,33 +929,7 @@
 			"tagName",
 			"console",
 			".length",
-			"repeatedDisplay",
-			"style",
-			"style=",
-			"padding-right",
-			"20px",
-			"body-content",
-			"grid-pad",
-			"mobile-col",
-			"col-",
-			"router",
-			"valor",
-			"console",
-			"console.",
-			"console",
-			"consoe",
-			"on",
-			"console",
-			"parent",
-			"exist",
-			"oldEl",
-			"this.el",
-			"components",
-			"_",
-			"components",
-			"window",
-			"conso",
-			"consoe"
+			"repeatedDisplay"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -873,6 +937,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"IndexView",
 			"myDateStr",
 			"delete",
 			"Delete",
@@ -999,8 +1064,7 @@
 			"produto",
 			"formDescontos",
 			"Desconto",
-			"Descontos",
-			"Desconto"
+			"Descontos"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -1011,38 +1075,127 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "src/manifest.webapp",
+					"file": "src/app/templates/parcel/index.html",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 576,
+						"buffer_size": 466,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								39,
-								39
+								116,
+								116
 							]
 						],
 						"settings":
 						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 2,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/assets/styles/main.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3848,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3608,
+								3608
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4932.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/app/views/parcel/index.coffee",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3418,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1285,
+								1285
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1151.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Cakefile",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9790,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6502,
+								6502
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 5768.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -1050,7 +1203,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 34.0
+		"height": 36.0
 	},
 	"input":
 	{
@@ -1083,6 +1236,10 @@
 	{
 		"height": 124.0
 	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
 	"output.git":
 	{
 		"height": 166.0
@@ -1091,9 +1248,10 @@
 	{
 		"height": 241.0
 	},
+	"project": "personalfinance_app.sublime-project",
 	"replace":
 	{
-		"height": 84.0
+		"height": 82.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1101,6 +1259,250 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"parcelindexco",
+				"src/app/views/parcel/index.coffee"
+			],
+			[
+				"cakefile",
+				"Cakefile"
+			],
+			[
+				"scss",
+				"src/assets/styles/main.scss"
+			],
+			[
+				"parcelindex",
+				"src/app/templates/parcel/index.html"
+			],
+			[
+				"parcelinde",
+				"src/app/templates/parcel/index.html"
+			],
+			[
+				"indexhtml",
+				"src/app/templates/main/index.html"
+			],
+			[
+				"index.html",
+				"src/index.html"
+			],
+			[
+				"configurationhtml",
+				"src/app/templates/configuration/index.html"
+			],
+			[
+				"cake",
+				"Cakefile"
+			],
+			[
+				"item.tml",
+				"src/app/templates/parcel/item.html"
+			],
+			[
+				"parceluphtml",
+				"src/app/templates/parcel/update.html"
+			],
+			[
+				"parcelindexhtml",
+				"build/app/templates/parcel/index.html"
+			],
+			[
+				"mainscss",
+				"src/assets/styles/main.scss"
+			],
+			[
+				"templateparcelitem",
+				"build/app/templates/parcel/item.html"
+			],
+			[
+				"viewsparcelindex",
+				"src/app/views/parcel/index.coffee"
+			],
+			[
+				"servicesconf",
+				"src/app/services/configuration.coffee"
+			],
+			[
+				"servicescurrency",
+				"src/app/services/currency.coffee"
+			],
+			[
+				"confiindex",
+				"src/app/views/configuration/index.coffee"
+			],
+			[
+				"viewsparcelinde",
+				"src/app/views/parcel/index.coffee"
+			],
+			[
+				"logger",
+				"src/app/components/logger.coffee"
+			],
+			[
+				"servicesconfi",
+				"src/app/services/configuration.coffee"
+			],
+			[
+				"modelsparcel",
+				"src/app/models/parcel.coffee"
+			],
+			[
+				"servicecure",
+				"src/app/services/currency.coffee"
+			],
+			[
+				"modelsmovemtco",
+				"src/app/models/movement.coffee"
+			],
+			[
+				"modelsconfig",
+				"src/app/models/configuration.coffee"
+			],
+			[
+				"configurationindex",
+				"src/app/templates/configuration/index.html"
+			],
+			[
+				"servicecurrenc",
+				"src/app/services/currency.coffee"
+			],
+			[
+				"serviceconfigjs",
+				"build/app/services/configuration.js"
+			],
+			[
+				"serviceconfi",
+				"src/app/services/configuration.coffee"
+			],
+			[
+				"servicecon",
+				"src/app/services/configuration.coffee"
+			],
+			[
+				"modelsconfigu",
+				"src/app/models/configuration.coffee"
+			],
+			[
+				"collectioncon",
+				"src/app/collections/configuration.coffee"
+			],
+			[
+				"srclocals",
+				"src/vendor/backbone/localstorage.js"
+			],
+			[
+				"srcbackbone",
+				"src/vendor/backbone/backbone.js"
+			],
+			[
+				"configindexco",
+				"src/app/views/configuration/index.coffee"
+			],
+			[
+				"confiindexco",
+				"src/app/views/configuration/index.coffee"
+			],
+			[
+				"configuhtml",
+				"src/app/templates/configuration/index.html"
+			],
+			[
+				"modelsconf",
+				"build/app/models/configuration.js"
+			],
+			[
+				"collecconf",
+				"src/app/collections/configuration.coffee"
+			],
+			[
+				"serviceconf",
+				"src/app/services/configuration.coffee"
+			],
+			[
+				"serviceco",
+				"src/app/services/configuration.coffee"
+			],
+			[
+				"collconfco",
+				"src/app/collections/configuration.coffee"
+			],
+			[
+				"collectionconf",
+				"src/app/collections/configuration.coffee"
+			],
+			[
+				"loggerco",
+				"src/app/components/logger.coffee"
+			],
+			[
+				"inserthtml",
+				"src/app/templates/movement/insert.html"
+			],
+			[
+				"confihtml",
+				"src/app/templates/configuration/index.html"
+			],
+			[
+				"layerman",
+				"src/app/widgets/layer_manager.coffee"
+			],
+			[
+				"confindexjs",
+				"build/app/views/configuration/index.js"
+			],
+			[
+				"movementinserjs",
+				"build/app/views/movement/insert.js"
+			],
+			[
+				"configindexjs",
+				"build/app/views/configuration/index.js"
+			],
+			[
+				"routerco",
+				"src/app/config/router.coffee"
+			],
+			[
+				"viewindexjs",
+				"build/app/views/configuration/index.js"
+			],
+			[
+				"router",
+				"src/app/config/router.coffee"
+			],
+			[
+				"tabs",
+				"src/assets/styles/resources/tabs.css"
+			],
+			[
+				"drawercss",
+				"src/assets/styles/resources/drawer.css"
+			],
+			[
+				"layermana",
+				"build/app/widgets/layer_manager.js"
+			],
+			[
+				"mainhtml",
+				"src/app/templates/main/index.html"
+			],
+			[
+				"stylescss",
+				"src/assets/styles/main.scss"
+			],
+			[
+				"movementinsertco",
+				"src/app/views/movement/insert.coffee"
+			],
+			[
+				"parcelcoffe",
+				"src/app/views/parcel/update.coffee"
+			],
+			[
+				"updatehtml",
+				"build/app/templates/parcel/update.html"
+			],
 			[
 				"buildmani",
 				"build/manifest.webapp"
@@ -1118,10 +1520,6 @@
 				"src/assets/styles/main.scss"
 			],
 			[
-				"parcelindex",
-				"src/app/templates/parcel/index.html"
-			],
-			[
 				"database",
 				"src/app/config/database.coffee"
 			],
@@ -1134,16 +1532,8 @@
 				"src/app/templates/main/index.html"
 			],
 			[
-				"indexhtml",
-				"src/index.html"
-			],
-			[
 				"compmodel",
 				"src/app/components/model.coffee"
-			],
-			[
-				"viewsparcelindex",
-				"src/app/views/parcel/index.coffee"
 			],
 			[
 				"servicecu",
@@ -1154,24 +1544,12 @@
 				"src/app/templates/parcel/item.html"
 			],
 			[
-				"modelsparcel",
-				"src/app/models/parcel.coffee"
-			],
-			[
 				"viewparce",
 				"src/app/views/parcel/index.coffee"
 			],
 			[
-				"mainscss",
-				"src/assets/styles/main.scss"
-			],
-			[
 				"modelsmove",
 				"src/app/models/movement.coffee"
-			],
-			[
-				"inserthtml",
-				"src/app/templates/movement/insert.html"
 			],
 			[
 				"modelmoveme",
@@ -1282,10 +1660,6 @@
 				"src/app/views/parcel/index.coffee"
 			],
 			[
-				"router",
-				"src/app/config/router.coffee"
-			],
-			[
 				"too",
 				"src/app/widgets/toolbar.coffee"
 			],
@@ -1324,10 +1698,6 @@
 			[
 				"compview",
 				"src/app/components/view.coffee"
-			],
-			[
-				"parceluphtml",
-				"src/app/templates/parcel/update.html"
 			],
 			[
 				"viewupdate",
@@ -1400,218 +1770,6 @@
 			[
 				"modelpar",
 				"src/app/models/parcel.coffee"
-			],
-			[
-				"viewparcel",
-				"src/app/views/parcel/index.coffee"
-			],
-			[
-				"servicmov",
-				"src/app/services/movement.coffee"
-			],
-			[
-				"modelmovement",
-				"src/app/models/movement.coffee"
-			],
-			[
-				"updatejs",
-				"build/app/views/parcel/update.js"
-			],
-			[
-				"updateco",
-				"src/app/views/parcel/update.coffee"
-			],
-			[
-				"actionmenu",
-				"src/app/widgets/action_menu.coffee"
-			],
-			[
-				"cake",
-				"Cakefile"
-			],
-			[
-				"actionmenujs",
-				"build/app/widgets/action_menu.js"
-			],
-			[
-				"app.coff",
-				"src/app/app.coffee"
-			],
-			[
-				"insert.coffe",
-				"src/app/views/movement/insert.coffee"
-			],
-			[
-				"modelparce",
-				"src/app/models/parcel.coffee"
-			],
-			[
-				"collectionparc",
-				"src/app/collections/parcel.coffee"
-			],
-			[
-				"update.html",
-				"build/app/templates/parcel/update.html"
-			],
-			[
-				"modelmovem",
-				"src/app/models/movement.coffee"
-			],
-			[
-				"maincoffe",
-				"src/app/views/main.coffee"
-			],
-			[
-				"modelsparce",
-				"src/app/models/parcel.coffee"
-			],
-			[
-				"servicesdate",
-				"src/app/services/date.coffee"
-			],
-			[
-				"servicescurr",
-				"src/app/services/currency.coffee"
-			],
-			[
-				"updatehtml",
-				"build/app/templates/parcel/update.html"
-			],
-			[
-				"currency_in",
-				"src/app/widgets/currency_input.coffee"
-			],
-			[
-				"currency_input",
-				"src/app/widgets/currency_input.coffee"
-			],
-			[
-				"app",
-				"src/app/app.coffee"
-			],
-			[
-				"routerjs",
-				"build/app/config/router.js"
-			],
-			[
-				"currencyinpu",
-				"build/app/widgets/currency_input.js"
-			],
-			[
-				"currency_inp",
-				"src/app/widgets/currency_input.coffee"
-			],
-			[
-				"router.cof",
-				"src/app/config/router.coffee"
-			],
-			[
-				"layer",
-				"src/app/widgets/layer_manager.coffee"
-			],
-			[
-				"layer_ma",
-				"build/app/widgets/layer_manager.js"
-			],
-			[
-				"viewsindex",
-				"src/app/views/parcel/index.coffee"
-			],
-			[
-				"collectionparce",
-				"src/app/collections/parcel.coffee"
-			],
-			[
-				"modelparcel.coffe",
-				"src/app/models/parcel.coffee"
-			],
-			[
-				"parcelindex.cof",
-				"src/app/views/parcel/index.coffee"
-			],
-			[
-				"currency",
-				"src/app/widgets/currency_input.coffee"
-			],
-			[
-				"movementinsert.html",
-				"src/app/templates/movement/insert.html"
-			],
-			[
-				"curreninput",
-				"build/app/widgets/currency_input.js"
-			],
-			[
-				"movementinser",
-				"src/app/views/movement/insert.coffee"
-			],
-			[
-				"movement",
-				"src/app/models/movement.coffee"
-			],
-			[
-				"stylscss",
-				"src/assets/styles/main.scss"
-			],
-			[
-				"curren",
-				"src/app/services/currency.coffee"
-			],
-			[
-				"srcinsert.html",
-				"src/app/templates/movement/insert.html"
-			],
-			[
-				"scss",
-				"src/assets/styles/main.scss"
-			],
-			[
-				"srcinput.",
-				"build/assets/styles/resources/input_areas.css"
-			],
-			[
-				"srcassetsinpu",
-				"src/assets/styles/resources/input_areas.css"
-			],
-			[
-				"layma",
-				"build/app/widgets/layer_manager.js"
-			],
-			[
-				"laymana",
-				"src/app/widgets/layer_manager.coffee"
-			],
-			[
-				"viespa",
-				"src/app/views/parcel/index.coffee"
-			],
-			[
-				"modelparcelco",
-				"src/app/models/parcel.coffee"
-			],
-			[
-				"lists",
-				"build/assets/styles/resources/lists.css"
-			],
-			[
-				"viewmov",
-				"src/app/views/movement/index.coffee"
-			],
-			[
-				"moveitemht",
-				"src/app/templates/movement/item.html"
-			],
-			[
-				"servimov",
-				"src/app/services/movement.coffee"
-			],
-			[
-				"tool",
-				"src/app/widgets/toolbar.coffee"
-			],
-			[
-				"modeljs",
-				"build/app/components/model.js"
 			]
 		],
 		"width": 0.0
@@ -1624,10 +1782,24 @@
 		],
 		"width": 380.0
 	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
 	"show_minimap": false,
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
 	"side_bar_width": 255.0,
-	"status_bar_visible": false
+	"status_bar_visible": false,
+	"template_settings":
+	{
+	}
 }

@@ -1,4 +1,4 @@
-define ['backbone_indexeddb'], (indexeddb) ->
+define ['indexeddb'], (indexeddb) ->
   id: if typeof(APP_DATABASE_ID) == 'undefined' then "personal_finance_maindb" else APP_DATABASE_ID
   description: "The main database"
   migrations: [

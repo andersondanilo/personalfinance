@@ -28,7 +28,11 @@
     "invalid_start_date": "Data de início inválido",
     "invalid_type_of_repeat_cycle": "Tipo inválido de ciclo de repetição",
     "date_required": "Data necessária",
-    "invalid_date": "Data inválida"
+    "invalid_date": "Data inválida",
+    "the_limit_are_3_character": "O limite é de 3 caracteres",
+    "decimal_separator_required": "Separador decimal necessário",
+    "thousands_separator_required": "Separador de milhares necessário",
+    "currency_required": "Moeda necessária"
   },
   "income": "Renda",
   "expense": "Despesa",
@@ -64,5 +68,11 @@
   "delete_only_this_parcel": "Excluir somente esta parcela",
   "delete_this_and_all_future": "Excluir esta e todas as futuras",
   "delete_all_including_previous": "Excluir todos, incluindo anterior",
-  "cancel": "Cancelar"
+  "cancel": "Cancelar",
+  "configuration": "Configuração",
+  "currency": "Moeda",
+  "thousands": "Milhares",
+  "decimal": "Decimal",
+  "Menu": "Menu",
+  "Configuration": "Configuração"
 }

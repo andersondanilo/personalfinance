@@ -2,7 +2,8 @@
 	"folders":
 	[
 		{
-			"path": "/home/anderson/Documents/Projetos/personalfinance/app"
-		}
+			"path": "/home/anderson/Documentos/Projetos/personalfinance/app",
+            "folder_exclude_patterns": ["build", "node_modules", ".sass-cache"]
+		},
 	]
 }

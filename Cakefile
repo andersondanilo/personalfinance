@@ -1,6 +1,7 @@
 {exec}   = require 'child_process'
 fs       = require 'fs'
 chokidar = require 'chokidar'
+execSync = require 'exec-sync'
   
 task 'compile', 'Compile coffescript ', ->
   compile()
@@ -151,10 +152,16 @@ compile = (autobuild) ->
   autobuild = autobuild || false
 
   doParseDir = (filename, from, to, oldState) ->
+    if from.indexOf('.subl') >= 0
+      return false
+
     fs.mkdirSync(to) if not fs.existsSync(to)
     copyPath from, to
 
   doParseFile = (filename, from, to, oldState) ->
+    if from.indexOf('.subl') >= 0
+      return false
+
     exist    = fs.existsSync(to)
     newState = fs.statSync(to) if exist
 
@@ -164,24 +171,14 @@ compile = (autobuild) ->
 
       if /.*\.coffee$/.test(from)
         to = to.replace /\.coffee$/, '.js'
-        exec "coffee -c -p #{from}", (error, stdout, stderr) ->
-          fs.writeFileSync(to, stdout)  
-          fs.utimesSync(to, oldState.atime, oldState.mtime)
-          if stderr != null && stderr
-            console.log 'stderr: ' + stderr
-          if error != null
-            console.log 'exec error: ' + error
+        stdout = execOut "coffee -c -p #{from}"
+        fs.writeFileSync(to, stdout)  
+        fs.utimesSync(to, oldState.atime, oldState.mtime)
         needSave = false
       else if /.*\.scss$/.test(from)
         to = to.replace /\.scss$/, '.css'
-        exec "sass --update #{from}:#{to}", (error, stdout, stderr) ->
-          fs.utimesSync(to, oldState.atime, oldState.mtime)
-          if stdout != null && stdout
-            console.log 'stdout: ' + stdout
-          if stderr != null && stderr
-            console.log 'stderr: ' + stderr
-          if error != null
-            console.log 'exec error: ' + error
+        execOut "sass --update #{from}:#{to}"
+        fs.utimesSync(to, oldState.atime, oldState.mtime)
         needSave = false
       else if /.*\.coff?ee?/.test(from)
         throw new Error("Extensão inválida: #{from}")
@@ -209,18 +206,24 @@ compile = (autobuild) ->
   fs.mkdirSync('build') if not fs.existsSync('build')
 
   copyPath 'src', 'build'
+  # Agora vamos para os testes unitários
+  copyPath 'test/src', 'test/lib'
 
   if autobuild
     watcher = chokidar.watch('src', {persistent: true});
 
     watcher
       .on 'add', (path) ->
+        if path.indexOf('.subl') >= 0
+          return false
         console.log 'File', path, 'has been added'
         from     = path
         to       = path.replace /^src/, 'build'
         oldState = fs.statSync(from)
         doParseFile path, from, to, oldState
       .on 'addDir', (path) -> 
+        if path.indexOf('.subl') >= 0
+          return false
         console.log 'Directory', path, 'has been added'
         from     = path
         to       = path.replace /^src/, 'build'
@@ -230,23 +233,26 @@ compile = (autobuild) ->
         else
           doParseFile path, from, to, oldState
       .on 'change', (path) -> 
+        if path.indexOf('.subl') >= 0
+          return false
         console.log 'File', path, 'has been changed'
         from     = path
         to       = path.replace /^src/, 'build'
         oldState = fs.statSync(from)
         doParseFile path, from, to, oldState
       .on 'unlink', (path) ->
+        if path.indexOf('.subl') >= 0
+          return false
         console.log 'File', path, 'has been removed'
         from     = path
         to       = path.replace /^src/, 'build'
         execOut("rm #{to}")
       .on 'unlinkDir', (path) ->
+        if path.indexOf('.subl') >= 0
+          return false
         console.log 'Directory', path, 'has been removed'
       .on 'error', (error) -> 
         console.error 'Error happened', error
-
-  # Agora vamos para os testes unitários
-  copyPath 'test/src', 'test/lib'
 
   if autobuild
     watcher = chokidar.watch('test/src', {persistent: true});
@@ -274,11 +280,15 @@ compile = (autobuild) ->
         oldState = fs.statSync(from)
         doParseFile path, from, to, oldState
       .on 'unlink', (path) ->
+        if path.indexOf('.subl') >= 0
+          return false
         console.log 'File', path, 'has been removed'
         from     = path
         to       = path.replace /test\/src/, 'test/lib'
         execOut("rm #{to}")
       .on 'unlinkDir', (path) ->
+        if path.indexOf('.subl') >= 0
+          return false
         console.log 'Directory', path, 'has been removed'
       .on 'error', (error) -> 
         console.error 'Error happened', error
@@ -296,8 +306,6 @@ compile = (autobuild) ->
   '''
 
 execOut = (commandLine) ->
-  exec(commandLine, (err, stdout, stderr) ->
-    console.log("> #{commandLine}")
-    console.log(stdout) if stdout
-    console.log(stderr) if stderr
-  )
+  console.log("> #{commandLine}")
+  stdout = execSync(commandLine)
+  return stdout

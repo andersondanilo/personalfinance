@@ -25,22 +25,23 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'models/parcel', 'serv
 
         this.$el = @el
 
-        @el.html template({
-          'i18n': i18n
-        })
-
-        @delegateEvents()
-
-        @el.removeClass 'loading'
-
-        FormView = View.extend {
-          el: "#form-parcel-update",
-          bindings: "data-bind"
-        }
-
         @model = new Parcel {id:id}
         @model.fetch {
           success: =>
+            @el.html template({
+              'i18n': i18n,
+              'model': @model
+            })
+
+            @delegateEvents()
+
+            @el.removeClass 'loading'
+
+            FormView = View.extend {
+              el: "#form-parcel-update",
+              bindings: "data-bind"
+            }
+
             form  = new FormView({model:@model})
 
             @needMultiple @model, ->
@@ -55,6 +56,7 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'models/parcel', 'serv
         @toolbar.set [
           {
             'save': =>
+              @el.find('input').trigger('change')
               # Temos que validar primeiro
               errors = @model.validate @model.toJSON()
               if errors
