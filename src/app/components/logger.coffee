@@ -4,7 +4,11 @@ define ->
       new_arguments = @_argsToArray arguments
       type = new_arguments.shift()
       new_arguments.unshift("(LOG) #{type}: ")
-      console.log.apply(this, new_arguments)
+      try
+        console.log.apply(this, new_arguments)
+      catch e
+        null # Do Nothing
+
 
     _argsToArray: (args) ->
       result = []

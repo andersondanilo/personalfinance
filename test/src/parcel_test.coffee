@@ -8,6 +8,7 @@ parcelService = requirejs 'services/parcel'
 describe 'ParcelService', ->
 
   it 'Should save one', (done) ->
+    @timeout(5000)
     model = new Parcel
     model.set {
       description: 'Olá Mundo'
@@ -38,7 +39,7 @@ describe 'ParcelService', ->
     }
 
   it 'Should save next', (done) ->
-    @timeout(8000)
+    @timeout(15000)
     movement = new Movement({
       description: 'My Repeated Model'
       value: '10.0'
@@ -120,7 +121,7 @@ describe 'ParcelService', ->
         done()
 
   it 'Should save all', (done) ->
-    @timeout(8000)
+    @timeout(15000)
     movement = new Movement({
       description: 'My Repeated Model'
       value: '10.0'
@@ -197,26 +198,8 @@ describe 'ParcelService', ->
         done()
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   it 'Should remove one', (done) ->
+    @timeout(15000)
     model = new Parcel
     model.set {
       description: 'Olá Mundo'
@@ -247,7 +230,7 @@ describe 'ParcelService', ->
     }
 
   it 'Should remove next', (done) ->
-    @timeout(8000)
+    @timeout(15000)
     movement = new Movement({
       description: 'My Repeated Model'
       value: '10.0'
@@ -313,7 +296,7 @@ describe 'ParcelService', ->
 
 
   it 'Should remove all', (done) ->
-    @timeout(8000)
+    @timeout(15000)
     movement = new Movement({
       description: 'My Repeated Model'
       value: '10.0'

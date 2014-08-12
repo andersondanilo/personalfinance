@@ -210,7 +210,9 @@ compile = (autobuild) ->
   copyPath 'test/src', 'test/lib'
 
   if autobuild
-    watcher = chokidar.watch('src', {persistent: true});
+    watcher = chokidar.watch 'src',
+      persistent: true
+      ignoreInitial: true
 
     watcher
       .on 'add', (path) ->
@@ -255,16 +257,22 @@ compile = (autobuild) ->
         console.error 'Error happened', error
 
   if autobuild
-    watcher = chokidar.watch('test/src', {persistent: true});
+    watcher = chokidar.watch 'test/src',
+      persistent: true
+      ignoreInitial: true
 
     watcher
       .on 'add', (path) ->
+        if path.indexOf('.subl') >= 0
+          return false
         console.log 'File', path, 'has been added'
         from     = path
         to       = path.replace /test\/src/, 'test/lib'
         oldState = fs.statSync(from)
         doParseFile path, from, to, oldState
       .on 'addDir', (path) -> 
+        if path.indexOf('.subl') >= 0
+          return false
         console.log 'Directory', path, 'has been added'
         from     = path
         to       = path.replace /test\/src/, 'test/lib'
@@ -274,6 +282,8 @@ compile = (autobuild) ->
         else
           doParseFile path, from, to, oldState
       .on 'change', (path) -> 
+        if path.indexOf('.subl') >= 0
+          return false
         console.log 'File', path, 'has been changed'
         from     = path
         to       = path.replace /test\/src/, 'test/lib'

@@ -61,7 +61,7 @@ describe 'MovementService', ->
         done()
 
   it 'Should repeat monthly', (done) ->
-    @timeout(5000)
+    @timeout(15000)
     model = new Movement({
       description: 'Its is My Repeated Model'
       value: '10.0'
@@ -101,8 +101,56 @@ describe 'MovementService', ->
         expect(error).to.be.undefined
         done()
 
+  it 'Should repeat monthly (Old, 18 parcel)', (done) ->
+    @timeout(19000)
+    model = new Movement({
+      description: 'Its is My Repeated Model'
+      value: '30.0'
+      repeated: 1
+      parcel_count: 18
+      cycle_type: 'month'
+      cycle_interval: 1
+      expiration_day: 15
+      start_date: '2013-11-25'
+    })
+    movementService.createMovement model,
+      success: ->
+        model.fetchParcels {
+          success: ->
+            parcels = model.getParcelCollection().models
+
+            expect(parcels.length).to.be.eql(18)
+
+            expect(parcels[0].get('date')).to.be.eql('2013-11-25')
+            expect(parcels[1].get('date')).to.be.eql('2013-12-15')
+            expect(parcels[2].get('date')).to.be.eql('2014-01-15')
+            expect(parcels[3].get('date')).to.be.eql('2014-02-15')
+            expect(parcels[4].get('date')).to.be.eql('2014-03-15')
+            expect(parcels[5].get('date')).to.be.eql('2014-04-15')
+            expect(parcels[6].get('date')).to.be.eql('2014-05-15')
+            expect(parcels[7].get('date')).to.be.eql('2014-06-15')
+            expect(parcels[8].get('date')).to.be.eql('2014-07-15')
+            expect(parcels[9].get('date')).to.be.eql('2014-08-15')
+            expect(parcels[10].get('date')).to.be.eql('2014-09-15')
+            expect(parcels[11].get('date')).to.be.eql('2014-10-15')
+            expect(parcels[12].get('date')).to.be.eql('2014-11-15')
+            expect(parcels[13].get('date')).to.be.eql('2014-12-15')
+            expect(parcels[14].get('date')).to.be.eql('2015-01-15')
+            expect(parcels[15].get('date')).to.be.eql('2015-02-15')
+            expect(parcels[16].get('date')).to.be.eql('2015-03-15')
+            expect(parcels[17].get('date')).to.be.eql('2015-04-15')
+
+            done()
+          error: (c,e)->
+            expect(e).to.be.eql('')
+            done()
+        }
+      error: (collection, error)->
+        expect(error).to.be.undefined
+        done()
+
   it 'Should repeat, interval: two month', (done) ->
-    @timeout(5000)
+    @timeout(15000)
     model = new Movement({
       description: 'Its is My Repeated Model'
       value: '10.0'
@@ -143,7 +191,7 @@ describe 'MovementService', ->
         done()
 
   it 'Should repeat weekly', (done) ->
-    @timeout(5000)
+    @timeout(15000)
     model = new Movement({
       description: 'My Repeated Model'
       value: '10.0'
@@ -184,7 +232,7 @@ describe 'MovementService', ->
         done()
 
   it 'Should repeat, interval: two week', (done) ->
-    @timeout(5000)
+    @timeout(15000)
     model = new Movement({
       description: 'My Repeated Model'
       value: '10.0'
@@ -225,7 +273,7 @@ describe 'MovementService', ->
         done()
 
   it 'Should repeat daily', (done) ->
-    @timeout(5000)
+    @timeout(15000)
     model = new Movement({
       description: 'My Repeated Model'
       value: '10.0'
@@ -266,7 +314,7 @@ describe 'MovementService', ->
         done()
 
   it 'Should repeat, interval: two day', (done) ->
-    @timeout(5000)
+    @timeout(15000)
     model = new Movement({
       description: 'My Repeated Model'
       value: '10.0'
@@ -307,7 +355,7 @@ describe 'MovementService', ->
         done()
 
   it 'Should create Infinite', (done) ->
-    @timeout(5000)
+    @timeout(15000)
     model = new Movement({
       description: 'My Repeated Model'
       value: '10.0'
@@ -341,7 +389,7 @@ describe 'MovementService', ->
         done()
 
   it 'Should Process Infinite', (done) ->
-    @timeout(5000)
+    @timeout(15000)
     model = new Movement({
       description: 'My Repeated Model'
       value: '10.0'
@@ -481,7 +529,7 @@ describe 'MovementService', ->
         done()
 
   it 'Should Process Infinite, interval daily', (done) ->
-    @timeout(5000)
+    @timeout(15000)
     todayDate = new Date()
     model = new Movement({
       description: 'My Repeated Model'
@@ -541,7 +589,7 @@ describe 'MovementService', ->
         done()
 
   it 'Should Process Infinite, interval two day', (done) ->
-    @timeout(5000)
+    @timeout(15000)
     todayDate = new Date()
     model = new Movement({
       description: 'My Repeated Model'
@@ -601,7 +649,7 @@ describe 'MovementService', ->
         done()
 
   it 'Should Process Infinite, interval weekly', (done) ->
-    @timeout(5000)
+    @timeout(15000)
     todayDate = new Date()
     model = new Movement({
       description: 'My Repeated Model'
@@ -661,7 +709,7 @@ describe 'MovementService', ->
         done()
 
   it 'Should Process Infinite, interval two week', (done) ->
-    @timeout(5000)
+    @timeout(15000)
     todayDate = new Date()
     model = new Movement({
       description: 'My Repeated Model'
