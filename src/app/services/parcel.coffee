@@ -42,7 +42,14 @@ define ['backbone', 'underscore', 'collections/movement', 'collections/parcel', 
       }
 
     _saveParcel: (model, callbacks) ->
-      model.save model.toJSON(), callbacks
+      model.save model.toJSON(),
+        success: ->
+          require('app').events.trigger "update:parcel", model
+          if callbacks and callbacks.success
+            callbacks.success.apply this, arguments
+        error: ->
+          if callbacks and callbacks.error
+            callbacks.error.apply this, arguments
 
     saveOne: (model, callbacks) ->
       # Salva apenas esta parcela
@@ -129,6 +136,7 @@ define ['backbone', 'underscore', 'collections/movement', 'collections/parcel', 
       }
 
     _removeParcel: (model, callbacks) ->
+      require('app').events.trigger "delete:parcel", model
       model.destroy callbacks
 
     removeOne: (model, callbacks) ->

@@ -26,6 +26,11 @@ define ['components/model', 'services/date', 'services/currency', 'collections/p
         else
           return 'none'
 
+      is_monthly:
+        deps: ['cycle_type']
+        get: ->
+          return @get('cycle_type') == 'month'
+
       repeated_boolean:
         deps: ['repeated']
         get: ->
@@ -37,7 +42,9 @@ define ['components/model', 'services/date', 'services/currency', 'collections/p
             return {repeated:0}
 
       is_infinite: ->
-        return @get('repeated') and not @get('parcel_count')
+        repeated = Number(@get('repeated'))
+        parcel_count = Number(@get('parcel_count'))
+        return (repeated and (parcel_count == 0 || isNaN(parcel_count)))
 
     fetchParcels: (params2) ->
       if !@parcelCollection
@@ -71,7 +78,7 @@ define ['components/model', 'services/date', 'services/currency', 'collections/p
         errors.value = i18n.t 'validate.invalid_type_of_repeat_cycle'
 
       if attrs.repeated || attrs.parcel_count > 1
-        if !attrs.expiration_day
+        if !attrs.expiration_day and attrs.cycle_type == 'month'
           errors.value = i18n.t 'validate.expiration_day_is_required'
         if !attrs.cycle_interval
           errors.value = i18n.t 'validate.repetition_interval_is_required'

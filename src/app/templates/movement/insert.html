@@ -78,7 +78,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-1-2">
+                        <div class="col-1-2" data-bind="toggle:is_monthly">
                             <input data-bind="value:expiration_day,events:['keyup','change']" type="number" min="1" step="1" max="31" placeholder="<%= i18n.t('movement.expiration_day') %>" />
                         </div>
                         <div class="col-1-2">

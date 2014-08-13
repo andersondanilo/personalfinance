@@ -42,6 +42,27 @@ define ['components/model', 'services/date', 'services/currency'], (Model, dateS
       route_update: ->
         return "#parcel/update/#{@get('id')}"
 
+    fetchMovement: (callbacks) ->
+      cache = require('app').cache
+
+      key = "movement_model_#{@get('movement_id')}"
+
+      if cache.has(key) or cache.isPending(key)
+        cache.get key, (value) ->
+          callbacks.success value
+        return true
+
+      cache.insertPending(key)
+
+      require ['models/movement'], (Movement) =>
+        movement = new Movement id:@get('movement_id')
+        movement.fetch
+          success: (model) ->
+            cache.set(key, model)
+            callbacks.success.apply(this, arguments)
+          error: ->
+            callbacks.error.apply(this, arguments)
+
     validate: (attrs) ->
       i18n = require 'i18n'
       errors = {}

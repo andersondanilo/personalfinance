@@ -4,7 +4,13 @@
     </aside>
     <p class="item-description">
         <span data-bind="text:description"></span>
+        <span class="parcel-box" data-bind="toggle:_show_parcel">
+            <span data-bind="text:parcel_number"></span> /
+            <span data-bind="text:_parcel_count"></span>
+        </span>
         <span data-bind="toggle:paid" class="paid-box"><%= require('i18n').t('movement.paid') %> </span>
     </p>
-    <p data-bind="text:date_formatted"></p>
+    <p>
+        <span data-bind="text:date_formatted"></span>
+    </p>
 </a>

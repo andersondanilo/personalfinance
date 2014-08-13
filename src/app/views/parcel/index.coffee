@@ -59,6 +59,16 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'views/main', 'collect
               return '#E22A00'
       })
 
+      doRefreshSum = =>
+        sum = 0
+        for model in @collection.models
+          if not model.get('paid')
+            sum += model.get 'value'
+        @sumModel.set {'sum':sum}
+        @sumModel.set {'empty':@collection.models.length==0}
+
+      doRefreshSum = _.throttle(doRefreshSum, 300)
+
       doFetch = =>
 
         date_start = new Date()
@@ -73,17 +83,38 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'views/main', 'collect
           conditions: {'date': [date_start, date_limit]}
           success: =>
             @collection.set @collection.where({'movement_type':@movement_type})
-            sum = 0
-            for model in @collection.models
-              if not model.get('paid')
-                sum += model.get 'value'
-            @sumModel.set {'sum':sum}
-            @sumModel.set {'empty':@collection.models.length==0}
+            doRefreshSum()
         }
 
       doFetch()
 
-      app.events.on 'sync:parcel', doFetch
+      doFetch = _.throttle(doFetch, 300)
+
+      #app.events.on 'sync:parcel', doFetch
+      #app.events.on 'sync:parcel', doFetch
+
+      app.events.on 'create:parcel', (parcel) =>
+        console.log 'create:parcel', arguments
+        if parcel.get('movement_type') == @movement_type
+          @collection.add([parcel])
+          doRefreshSum()
+
+      app.events.on 'update:parcel', (parcel) =>
+        console.log 'update:parcel', arguments
+        if parcel.get('movement_type') == @movement_type
+          # Remove old
+          results = @collection.where {id:parcel.get('id')}
+          @collection.remove(results)
+          @collection.add([parcel])
+          doRefreshSum()
+
+      app.events.on 'delete:parcel', (parcel) =>
+        console.log 'delete:parcel', arguments
+        if parcel.get('movement_type') == @movement_type
+          # Remove old
+          results = @collection.where {id:parcel.get('id')}
+          @collection.remove(results)
+          doRefreshSum()
 
       require ['text!templates/parcel/index.html', 'text!templates/parcel/item.html'], (template_raw, item_template_raw) =>
         template = _.template(template_raw)
@@ -97,9 +128,23 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'views/main', 'collect
         ItemView = View.extend
           tagName: "li",
           bindings: "data-bind"
+
           initialize: (options) ->
             $(@el).html(item_template())
+
+            @model.set('_parcel_count', null)
+            @model.set('_show_parcel', false)
+
+            @model.fetchMovement
+              success: (movement) =>
+                @model.set('_parcel_count', movement.get('parcel_count'))
+                if Number(movement.get('parcel_count')) > 0
+                  @model.set('_show_parcel', true)
+
             super options
+
+
+
 
         movement_type = @movement_type
 

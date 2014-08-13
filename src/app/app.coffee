@@ -28,7 +28,8 @@ define [
     'text!templates/main/index.html',
     'components/logger',
     'components/view',
-    'epoxy'], (
+    'epoxy',
+    'components/cache'], (
       _,
       $,
       i18n,
@@ -41,7 +42,8 @@ define [
       main_template_raw,
       Logger, # Only Pre-load
       View,
-      epoxy
+      epoxy,
+      Cache
 ) ->
   class App
     constructor: ->
@@ -49,6 +51,7 @@ define [
       @status = new Status $('#app-status')
       @events = _.extend {}, Backbone.Events
       @router = router
+      @cache = new Cache()
 
       _.delay (->
         require ['services/movement'], (movementService) ->

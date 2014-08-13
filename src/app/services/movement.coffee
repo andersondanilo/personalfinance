@@ -20,10 +20,11 @@ define ['backbone', 'underscore', 'collections/movement', 'collections/parcel', 
 
           currentDate  = dateService.createFromFormat 'YYYY-MM-DD', movement.get('start_date')
           isInfinite = movement.get('is_infinite')
+
           if isInfinite
             parcelCount = MONTHS_PRE_REGISTER
           else
-            parcelCount = if movement.get('parcel_count') then movement.get('parcel_count') else 1
+            parcelCount = if Number(movement.get('parcel_count')) then Number(movement.get('parcel_count')) else 1
 
           parcelSuccess = null
           parcelError   = null
@@ -35,7 +36,7 @@ define ['backbone', 'underscore', 'collections/movement', 'collections/parcel', 
             parcelError = _.after(parcelCount, callbacks.errors)
 
           for i in [1..parcelCount]
-            do (currentDate) =>
+            do (currentDate, i) =>
               @createParcelFromMovement movement, {
                 'parcel_number': i,
                 'date': dateService.format 'YYYY-MM-DD', currentDate
@@ -50,14 +51,14 @@ define ['backbone', 'underscore', 'collections/movement', 'collections/parcel', 
 
             if parcelCount > 0
               if movement.get('cycle_type') == 'day'
-                dateService.addDay currentDate, movement.get('cycle_interval')
+                dateService.addDay currentDate, Number(movement.get('cycle_interval'))
 
               if movement.get('cycle_type') == 'week'
-                dateService.addDay currentDate, movement.get('cycle_interval') * 7
+                dateService.addDay currentDate, Number(movement.get('cycle_interval')) * 7
 
               if movement.get('cycle_type') == 'month'
-                dateService.addMonth currentDate, movement.get('cycle_interval')
-                dateService.setDay currentDate, movement.get('expiration_day')
+                dateService.addMonth currentDate, Number(movement.get('cycle_interval'))
+                dateService.setDay currentDate, Number(movement.get('expiration_day'))
         error: ->
           if callbacks.error
             callbacks.error()
@@ -193,6 +194,7 @@ define ['backbone', 'underscore', 'collections/movement', 'collections/parcel', 
 
       parcel.save parcel.toJSON(),
         success: ->
+          require('app').events.trigger "create:parcel", parcel
           if callbacks.success
             callbacks.success.apply this, arguments
 
