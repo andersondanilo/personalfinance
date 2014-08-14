@@ -23,6 +23,7 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'models/movement', 'co
 
         
         @el.removeClass 'loading'
+        this.$el = @el
 
         FormView = View.extend {
           el: "#form-movement-insert",
@@ -50,6 +51,7 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'models/movement', 'co
                   break
               else
                 app.status.show i18n.t('successfully_added')
+                @remove()
                 movementService.createMovement model
                 if model.get('movement_type') == 'income'
                   app.router.navigate 'income', trigger:true

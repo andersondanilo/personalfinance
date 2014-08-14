@@ -21,6 +21,9 @@ define ['zepto', 'underscore', 'backbone', 'i18n'], ($, _, Backbone, i18n) ->
       layer.addClass('active')
       return layer
 
+    goToMain: () ->
+      @go(@mainLayer)
+
     exist: (oldEl) ->
       if !oldEl || !oldEl.get
         return false

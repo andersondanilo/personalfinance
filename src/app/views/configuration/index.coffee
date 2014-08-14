@@ -22,6 +22,8 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'services/configuratio
           'i18n': i18n
         })
 
+        this.$el = @el
+
         @el.removeClass 'loading'
 
         FormView = View.extend {
@@ -46,7 +48,7 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'services/configuratio
                 form.removeBindings()
                 model.save()
                 app.status.show i18n.t('edited_successfully')
-                
+                @remove()
                 app.router.navigate 'expense', trigger:true
           }
         ]

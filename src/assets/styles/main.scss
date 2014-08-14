@@ -105,6 +105,14 @@ section[role="status"].status-container {
   position:fixed;
 }
 
+#content-layer-container {
+  position:absolute;
+  top:96px;
+  bottom:41px;
+  overflow:auto;
+  left:0px;right:0px;
+}
+
 .input-currency {
   position:relative;
 
@@ -154,10 +162,6 @@ section[role="status"].status-container {
     left:10px;
     top:-2px;
   }
-}
-
-.parcel-list {
-  padding-bottom: 4rem;
 }
 
 .parcel-list-bottom {

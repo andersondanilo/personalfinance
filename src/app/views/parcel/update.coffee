@@ -55,6 +55,7 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'models/parcel', 'serv
                       afterUpdate: =>
                         app = require('app')
                         app.status.show i18n.t('edited_successfully')
+                        @remove()
                         if @model.get('movement_type') == 'income'
                           app.router.navigate 'income', trigger:true
                         else

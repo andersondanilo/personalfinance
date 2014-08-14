@@ -19,13 +19,20 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'views/main', 'collect
         }
       return @instances[movement_type]
 
+    existEl: ->
+      return !((not @el?) or (not main.layers.exist(@el)))
+
     getEl: ->
-      if (not @el?) or (not main.layers.exist(@el))
+      if not @existEl()
         @el = main.layers.add()
-      main.layers.go(@el)
+      @goToLayer()
       return @el
 
-    render: ->
+    goToLayer: ->
+      require('app').layers.reset()
+      main.layers.go(@el)
+
+    firstRender: ->
       main.render()
       movement_type = @movement_type
 
@@ -94,13 +101,11 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'views/main', 'collect
       #app.events.on 'sync:parcel', doFetch
 
       app.events.on 'create:parcel', (parcel) =>
-        console.log 'create:parcel', arguments
         if parcel.get('movement_type') == @movement_type
           @collection.add([parcel])
           doRefreshSum()
 
       app.events.on 'update:parcel', (parcel) =>
-        console.log 'update:parcel', arguments
         if parcel.get('movement_type') == @movement_type
           # Remove old
           results = @collection.where {id:parcel.get('id')}
@@ -109,7 +114,6 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'views/main', 'collect
           doRefreshSum()
 
       app.events.on 'delete:parcel', (parcel) =>
-        console.log 'delete:parcel', arguments
         if parcel.get('movement_type') == @movement_type
           # Remove old
           results = @collection.where {id:parcel.get('id')}
@@ -141,10 +145,6 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'views/main', 'collect
                 if Number(movement.get('parcel_count')) > 0
                   @model.set('_show_parcel', true)
 
-            super options
-
-
-
 
         movement_type = @movement_type
 
@@ -160,5 +160,10 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'views/main', 'collect
 
         configurationService.on 'sync', =>
           @listView.applyBindings()
+
+    render: ->
+      if !@existEl()
+        @firstRender()
+      @goToLayer()
 
   return IndexView
