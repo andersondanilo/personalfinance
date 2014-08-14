@@ -20,5 +20,13 @@
       "description": "Gasto e Ingreso para uso personal"
     }
   },
-  "default_locale": "en"
+  "default_locale": "en",
+  "permissions": {
+    "alarms": {
+      "description": "Required to schedule alarms"
+    }
+  },
+  "messages": [
+    { "alarm": "/index.html" }
+  ]
 }
