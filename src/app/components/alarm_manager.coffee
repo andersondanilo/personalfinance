@@ -31,8 +31,8 @@ define ['backbone'], (Backbone) ->
 
 
     add: (date, data, callback) ->
-      #if not navigator.mozAlarms
-      #  return false
+      if not navigator.mozAlarms
+        return false
       request = navigator.mozAlarms.add date, "ignoreTimezone", data
 
       request.onsuccess = ->
@@ -40,8 +40,8 @@ define ['backbone'], (Backbone) ->
         callback(alarmId)
 
     delete: (alarmId) ->
-      #if not navigator.mozAlarms
-      #  return false
+      if not navigator.mozAlarms
+        return false
       navigator.mozAlarms.remove alarmId
 
   class AlarmProxy

@@ -4,8 +4,8 @@ define ->
     fallbackLng: 'en'
 
     # change path
-    resPostPath: 'app/locales/__lng__/__ns__.json'
-    resGetPath:  'app/locales/__lng__/__ns__.json'
+    resPostPath: if typeof(APP_TRANSLATE_PATH) == 'undefined' then 'app/locales/__lng__/__ns__.json' else APP_TRANSLATE_PATH
+    resGetPath: if typeof(APP_TRANSLATE_PATH) == 'undefined' then 'app/locales/__lng__/__ns__.json' else APP_TRANSLATE_PATH
  
     # change sendType
     sendType: 'GET'

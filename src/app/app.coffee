@@ -58,6 +58,7 @@ define [
       @cache = new Cache()
 
       @events.on 'alarm', (alarm) ->
+        alert 'app alarm'
         require ['services/notification'], (notificationService) ->
           notificationService.triggerNotification(alarm)
 
@@ -70,6 +71,7 @@ define [
       ), 500
 
       i18n.init conf_i18n, =>
+        i18n.initialized = true
         router.start()
 
   return new App()

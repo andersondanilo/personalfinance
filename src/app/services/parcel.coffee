@@ -45,6 +45,8 @@ define ['backbone', 'underscore', 'collections/movement', 'collections/parcel', 
       model.save model.toJSON(),
         success: ->
           require('app').events.trigger "update:parcel", model
+          require ['services/notification'], (notificationService) ->
+            notificationService.createAlarm model
           if callbacks and callbacks.success
             callbacks.success.apply this, arguments
         error: ->

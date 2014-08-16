@@ -6,25 +6,27 @@ AlarmManager = requirejs 'components/alarm_manager'
 ParcelCollection    = requirejs 'collections/parcel'
 
 parcelCollection = new ParcelCollection
-'''
+
 describe 'AlarmManager', ->
 
   it 'Should trigger alarm', (done) ->
-    events = _.extend {}, Backbone.Events
-    alarmManager = new AlarmManager(events)
-    mozAlarm = {
-      'id': 5,
-      'date': new Date(),
-      'data': 'olá'
-    }
+    require ['app'], (app) ->
+      events = app.events
+      alarmManager = app.alarms
+      mozAlarm = {
+        'id': 5,
+        'date': new Date(),
+        'data': 'olá'
+      }
 
-    events.on 'alarm', (alarmObj) ->
-      expect(alarmObj.getId()).to.be.eql(mozAlarm.id)
-      expect(alarmObj.getDate()).to.be.eql(mozAlarm.date)
-      expect(alarmObj.getData()).to.be.eql(mozAlarm.data)
-      done()
+      events.on 'alarm', (alarmObj) ->
+        alert 'alarm 1'
+        expect(alarmObj.getId()).to.be.eql(mozAlarm.id)
+        expect(alarmObj.getDate()).to.be.eql(mozAlarm.date)
+        expect(alarmObj.getData()).to.be.eql(mozAlarm.data)
+        done()
 
-    alarmManager.triggerAlarm mozAlarm
+      alarmManager.triggerAlarm mozAlarm
 
   it 'Should add alarm', (done) ->
     @timeout(3000)
@@ -42,34 +44,35 @@ describe 'AlarmManager', ->
 
   it 'Should dalete alarm', (done) ->
     @timeout(4000)
-    events = _.extend {}, Backbone.Events
-    alarmManager = new AlarmManager(events)
-    date = new Date()
-    date.setSeconds(date.getSeconds()+2)
-    count = 0
-    alarmManager.add date, 'Olá', (alarmId) ->
-      expect(Number(alarmId)).to.be.at.least(1)
-      alarmManager.delete(alarmId)
+    require ['app'], (app) ->
+      events = app.events
+      alarmManager = app.alarms
+      date = new Date()
+      date.setSeconds(date.getSeconds()+2)
+      count = 0
+      alarmManager.add date, 'Olá', (alarmId) ->
+        expect(Number(alarmId)).to.be.at.least(1)
+        alarmManager.delete(alarmId)
 
-      events.on 'alarm', (alarmObj) ->
-        count += 1
+        events.on 'alarm', (alarmObj) ->
+          alert 'alarm 2'
+          count += 1
 
-      setTimeout(->
-        expect(count).to.be.eql(0)
-        done()
-      , 2500)
+        setTimeout(->
+          expect(count).to.be.eql(0)
+          done()
+        , 2500)
 
-'''
 describe 'NotificationService', ->
 
   it 'Should create alarm', (done) ->
-    @timeout(8000)
+    @timeout(10000)
     require ['app'], (app) ->
       date = new Date
       date.setDate date.getDate()+1
-      date.setSeconds date.getSeconds() + 2
+      date.setSeconds date.getSeconds() + 3
       dateAlarm = new Date
-      dateAlarm.setSeconds date.getSeconds() + 2
+      dateAlarm.setSeconds date.getSeconds() + 3
       parcel = new Parcel {
         description: 'Cartao'
         date: dateService.format 'YYYY-MM-DD', date
@@ -80,6 +83,7 @@ describe 'NotificationService', ->
       }
 
       app.events.on 'notification', (notification) ->
+        alert 'notification'
         expect(notification.title).to.have.string('Cartao')
         done()
 

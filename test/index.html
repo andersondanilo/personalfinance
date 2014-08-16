@@ -6,7 +6,9 @@
     <link rel="stylesheet" media="all" href="vendor/mocha.css">
     <script type="text/javascript">
         var APP_BASE_URL    = './build/app';
+        var APP_ENVIROMENT = 'TEST';
         var APP_DATABASE_ID = 'personal_finance_test';
+        var APP_TRANSLATE_PATH = 'build/app/locales/__lng__/__ns__.json'
         try
         {
             indexedDB.deleteDatabase(APP_DATABASE_ID);
@@ -31,8 +33,8 @@
       require(['services/movement', 'services/parcel', 'services/date', 'services/currency', 'app', 'services/notification'], function() {
         _ = require('underscore')
 
-        //var tests = ["lib/cache_test.js", "lib/movement_test.js", "lib/date_test.js", "lib/parcel_test.js", "lib/notification_test.js"]
-        var tests = ["lib/notification_test.js"];
+        //var tests = ["lib/cache_test.js", "lib/movement_test.js", "lib/date_test.js", "lib/parcel_test.js", "lib/notification_test.js"];
+        var tests = ["lib/notification_test.js"]
         var success = _.after(tests.length, function() {
             mocha.run();
         });

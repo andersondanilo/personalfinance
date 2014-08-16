@@ -6,7 +6,10 @@ define ['models/parcel', 'i18n', 'services/date'], (Parcel, i18n, dateService) -
       # Cria um alarme para determinada parcela
       alarms = require('app').alarms
       if model.get 'alarm_id'
-        alarms.delete model.get('alarm_id')
+        try
+          alarms.delete model.get('alarm_id')
+        catch e
+          require('components/logger').warning(e)
       if dateAlarm
         date = dateAlarm
       else
@@ -16,8 +19,11 @@ define ['models/parcel', 'i18n', 'services/date'], (Parcel, i18n, dateService) -
         date.setSeconds 0
         date.setDate date.getDate()-1
       alarm_data = {id_parcel:model.get('id')}
-      alarms.add date, alarm_data, (alarmId) ->
-        model.set {alarm_id:alarmId}
+      try
+        alarms.add date, alarm_data, (alarmId) ->
+          model.set {alarm_id:alarmId}
+      catch e
+        require('components/logger').warning(e)
       return date
 
     triggerNotification: (alarm) ->

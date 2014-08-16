@@ -23,5 +23,17 @@ define ['indexeddb'], (indexeddb) ->
           parcelsStore.createIndex "movement_type_idx", "movement_type", {unique: false}
 
           next()
+    },
+    {
+      version: 2
+      migrate: (transaction, next) ->
+          setTimeout(
+            require ['services/notification', 'collections/parcel'], (notificationService, ParcelCollection) ->
+              collection = new ParcelCollection()
+              collection.fetch()
+              collection.each (parcel) ->
+                notificationService.createAlarm parcel
+          , 500)
+          next()
     }
   ]

@@ -195,6 +195,8 @@ define ['backbone', 'underscore', 'collections/movement', 'collections/parcel', 
       parcel.save parcel.toJSON(),
         success: ->
           require('app').events.trigger "create:parcel", parcel
+          require ['services/notification'], (notificationService) ->
+            notificationService.createAlarm parcel
           if callbacks.success
             callbacks.success.apply this, arguments
 
