@@ -58,7 +58,6 @@ define [
       @cache = new Cache()
 
       @events.on 'alarm', (alarm) ->
-        alert 'app alarm'
         require ['services/notification'], (notificationService) ->
           notificationService.triggerNotification(alarm)
 
