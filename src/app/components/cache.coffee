@@ -48,3 +48,5 @@ define ['backbone'], (Backbone) ->
         return true
       else
         return false
+
+  return Cache

@@ -29,7 +29,9 @@ define [
     'components/logger',
     'components/view',
     'epoxy',
-    'components/cache'], (
+    'components/cache',
+    'components/alarm_manager',
+    'components/notification_manager'], (
       _,
       $,
       i18n,
@@ -43,7 +45,9 @@ define [
       Logger, # Only Pre-load
       View,
       epoxy,
-      Cache
+      Cache,
+      AlarmManager,
+      NotificationManager
 ) ->
   class App
     constructor: ->
@@ -52,6 +56,13 @@ define [
       @events = _.extend {}, Backbone.Events
       @router = router
       @cache = new Cache()
+
+      @events.on 'alarm', (alarm) ->
+        require ['services/notification'], (notificationService) ->
+          notificationService.triggerNotification(alarm)
+
+      @alarms = new AlarmManager(@events)
+      @notifications = new NotificationManager(@events)
 
       _.delay (->
         require ['services/movement'], (movementService) ->

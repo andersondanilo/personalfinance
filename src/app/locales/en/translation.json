@@ -74,5 +74,7 @@
   "decimal": "Decimal",
   "thousands": "Thousands",
   "Menu": "Menu",
-  "Configuration": "Configuration"
+  "Configuration": "Configuration",
+  "due_tomorrow": "due tomorrow",
+  "the_due_date_is": "The due date is"
 }

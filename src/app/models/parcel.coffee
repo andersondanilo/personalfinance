@@ -15,7 +15,8 @@ define ['components/model', 'services/date', 'services/currency'], (Model, dateS
       paid: false,
       status: '1',
       create_date: '',
-      update_date: ''
+      update_date: '',
+      alarm_id: null
 
     computeds:
       color: ->
@@ -28,8 +29,13 @@ define ['components/model', 'services/date', 'services/currency'], (Model, dateS
           return '#E22A00'
 
       date_obj:
+        deps: ['date']
         get: ->
-          return dateService.createFromFormat('YYYY-MM-DD', @get('date'))
+          if @get('date')
+            result = dateService.createFromFormat('YYYY-MM-DD', @get('date'))
+            return result
+          else
+            return null
         set: (value) ->
           return {date:dateService.format('YYYY-MM-DD', value)}
 

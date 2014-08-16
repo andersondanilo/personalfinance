@@ -1,12 +1,13 @@
 {
   "version": "1.1",
-  "name": "Personal Finance",
-  "description": "Expense and Income for personal use",
+  "name": "Test Personal Finance",
+  "description": "Test Personal Finance",
   "launch_path": "/index.html",
+  "origin": "app://test-personal-finance.com",
   "icons": {
-    "48": "/assets/icons/logo48.png",
-    "64": "/assets/icons/logo64.png",
-    "128": "/assets/icons/logo128.png"
+    "48": "../build/assets/icons/logo48.png",
+    "64": "../build/assets/icons/logo64.png",
+    "128": "../build/assets/icons/logo128.png"
   },
   "developer": {
     "name": "Anderson Danilo",

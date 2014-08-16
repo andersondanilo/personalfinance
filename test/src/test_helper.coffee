@@ -10,6 +10,10 @@ requireJsConfig =
       epoxy:      '../vendor/backbone/epoxy'
       i18n:       '../vendor/i18next/i18next'
       zepto:      '../vendor/zepto/zepto'
+    config:
+      text:
+        createXhr: () ->
+          return new XMLHttpRequest({mozSystem:true})
     map:
       '*':
         jquery: 'zepto'
@@ -43,7 +47,7 @@ if !isBrowser
   GLOBAL.requirejs = require 'requirejs'
   GLOBAL.chai = require 'chai'
 
-  requireJsConfig.baseUrl     = "#{__dirname}/../build/app"
+  requireJsConfig.baseUrl     = "#{__dirname}/build/app"
   requireJsConfig.nodeRequire = require
   requireJsConfig.compilers = [
       {
@@ -53,7 +57,7 @@ if !isBrowser
   ]
 else
   GLOBAL = window
-  requireJsConfig.baseUrl     = "./../build/app"
+  requireJsConfig.baseUrl     = "./build/app"
 
 GLOBAL.expect = chai.expect
 GLOBAL.requirejs.config(requireJsConfig)

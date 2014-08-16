@@ -74,5 +74,7 @@
   "thousands": "Milhares",
   "decimal": "Decimal",
   "Menu": "Menu",
-  "Configuration": "Configuração"
+  "Configuration": "Configuração",
+  "due_tomorrow": "vence amanhã",
+  "the_due_date_is": "A data de vencimento é"
 }

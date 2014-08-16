@@ -37,4 +37,7 @@ define ['moment', 'i18n'], (moment, i18n) ->
       d = new Date(dateObj.getYear(), dateObj.getMonth()+1, 0)
       return d.getDate()
 
+    clone: (dateObj) ->
+      new Date(dateObj)
+
   return new DateService

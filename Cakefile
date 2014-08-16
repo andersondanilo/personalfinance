@@ -13,6 +13,7 @@ task 'build', 'Compile', ->
 task 'clean', 'Limpar', ->
   execOut('rm -rf build/*')
   execOut('rm -rf test/lib/*')
+  execOut('rm -rf test/build/*')
 
 task 'listen', 'Compila automaticamente a cada modificação', ->
   invoke 'clean'
@@ -152,33 +153,44 @@ compile = (autobuild) ->
   autobuild = autobuild || false
 
   doParseDir = (filename, from, to, oldState) ->
+    if typeof(to) == 'string'
+      to = [to]
     if from.indexOf('.subl') >= 0
       return false
-
-    fs.mkdirSync(to) if not fs.existsSync(to)
+    for t in to
+      fs.mkdirSync(t) if not fs.existsSync(t)
     copyPath from, to
 
-  doParseFile = (filename, from, to, oldState) ->
+  doParseFile = (filename, from, to_array, oldState) ->
     if from.indexOf('.subl') >= 0
       return false
 
-    exist    = fs.existsSync(to)
-    newState = fs.statSync(to) if exist
+    if typeof(to_array) == 'string'
+      to_array = [to_array]
+
+    exist = true
+    for t in to_array
+      if not fs.existsSync(t)
+        exist = false
+
+    newState = fs.statSync(to_array[0]) if fs.existsSync(to_array[0])
 
     if not exist or parseInt(newState.mtime.getTime()) <= parseInt(oldState.mtime.getTime())
       contents = fs.readFileSync(from)
       needSave = true
 
       if /.*\.coffee$/.test(from)
-        to = to.replace /\.coffee$/, '.js'
         stdout = execOut "coffee -c -p #{from}"
-        fs.writeFileSync(to, stdout)  
-        fs.utimesSync(to, oldState.atime, oldState.mtime)
+        for t in to_array
+          t = t.replace /\.coffee$/, '.js'
+          fs.writeFileSync(t, stdout)  
+          fs.utimesSync(t, oldState.atime, oldState.mtime)
         needSave = false
       else if /.*\.scss$/.test(from)
-        to = to.replace /\.scss$/, '.css'
-        execOut "sass --update #{from}:#{to}"
-        fs.utimesSync(to, oldState.atime, oldState.mtime)
+        for t in to_array
+          t = t.replace /\.scss$/, '.css'
+          execOut "sass --update #{from}:#{t}"
+          fs.utimesSync(t, oldState.atime, oldState.mtime)
         needSave = false
       else if /.*\.coff?ee?/.test(from)
         throw new Error("Extensão inválida: #{from}")
@@ -186,13 +198,18 @@ compile = (autobuild) ->
         throw new Error("Extensão inválida: #{from}")
 
       if needSave
-        fs.writeFileSync(to, contents)
-        fs.utimesSync(to, oldState.atime, oldState.mtime)
+        for t in to_array
+          fs.writeFileSync(t, contents)
+          fs.utimesSync(t, oldState.atime, oldState.mtime)
 
   doParseItem = (filename, src, dest) ->
     do (filename) ->
       from = "#{src}/#{filename}"
-      to   = "#{dest}/#{filename}"
+      if typeof(dest) != 'object'
+        dest = [dest]
+      to = []
+      for d in dest
+        to.push "#{d}/#{filename}"
       oldState = fs.statSync(from)
       if oldState.isDirectory()
         doParseDir filename, from, to, oldState
@@ -200,12 +217,15 @@ compile = (autobuild) ->
         doParseFile filename, from, to, oldState
 
   copyPath = (src, dest) ->
+    if typeof(dest) == 'string'
+      dest = [dest]
     for filename in fs.readdirSync src
       doParseItem(filename, src, dest)
 
   fs.mkdirSync('build') if not fs.existsSync('build')
+  fs.mkdirSync('test/build') if not fs.existsSync('test/build')
 
-  copyPath 'src', 'build'
+  copyPath 'src', ['build', 'test/build']
   # Agora vamos para os testes unitários
   copyPath 'test/src', 'test/lib'
 
@@ -219,36 +239,40 @@ compile = (autobuild) ->
         if path.indexOf('.subl') >= 0
           return false
         console.log 'File', path, 'has been added'
-        from     = path
-        to       = path.replace /^src/, 'build'
-        oldState = fs.statSync(from)
-        doParseFile path, from, to, oldState
+        from = path
+        for t in ['build', 'test/build']
+          to = path.replace /^src/, t
+          oldState = fs.statSync(from)
+          doParseFile path, from, to, oldState
       .on 'addDir', (path) -> 
         if path.indexOf('.subl') >= 0
           return false
         console.log 'Directory', path, 'has been added'
         from     = path
-        to       = path.replace /^src/, 'build'
-        oldState = fs.statSync(from)
-        if oldState.isDirectory()
-          doParseDir path, from, to, oldState
-        else
-          doParseFile path, from, to, oldState
+        for t in ['build', 'test/build']
+          to       = path.replace /^src/, t
+          oldState = fs.statSync(from)
+          if oldState.isDirectory()
+            doParseDir path, from, to, oldState
+          else
+            doParseFile path, from, to, oldState
       .on 'change', (path) -> 
         if path.indexOf('.subl') >= 0
           return false
         console.log 'File', path, 'has been changed'
         from     = path
-        to       = path.replace /^src/, 'build'
-        oldState = fs.statSync(from)
-        doParseFile path, from, to, oldState
+        for t in ['build', 'test/build']
+          to       = path.replace /^src/, t
+          oldState = fs.statSync(from)
+          doParseFile path, from, to, oldState
       .on 'unlink', (path) ->
         if path.indexOf('.subl') >= 0
           return false
         console.log 'File', path, 'has been removed'
         from     = path
-        to       = path.replace /^src/, 'build'
-        execOut("rm #{to}")
+        for t in ['build', 'test/build']
+          to       = path.replace /^src/, t
+          execOut("rm #{to}")
       .on 'unlinkDir', (path) ->
         if path.indexOf('.subl') >= 0
           return false

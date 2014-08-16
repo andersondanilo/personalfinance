@@ -74,5 +74,7 @@
   "thousands": "Miles",
   "configuration": "Configuración",
   "Configuration": "Configuración",
-  "decimal": "Decimal"
+  "decimal": "Decimal",
+  "due_tomorrow": "para mañana",
+  "the_due_date_is": "La fecha de vencimiento es"
 }

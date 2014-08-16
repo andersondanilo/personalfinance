@@ -28,10 +28,11 @@
     <div id="fixtures"></div>
     <script>mocha.setup('bdd')</script>
     <script>
-      require(['services/movement', 'services/parcel', 'services/date', 'services/currency'], function() {
+      require(['services/movement', 'services/parcel', 'services/date', 'services/currency', 'app', 'services/notification'], function() {
         _ = require('underscore')
 
-        var tests = ["lib/cache_test.js", "lib/movement_test.js", "lib/date_test.js", "lib/parcel_test.js"]
+        //var tests = ["lib/cache_test.js", "lib/movement_test.js", "lib/date_test.js", "lib/parcel_test.js", "lib/notification_test.js"]
+        var tests = ["lib/notification_test.js"];
         var success = _.after(tests.length, function() {
             mocha.run();
         });

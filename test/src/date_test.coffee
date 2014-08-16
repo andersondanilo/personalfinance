@@ -15,6 +15,12 @@ describe 'DateService', ->
     result = dateService.createFromFormat('DD/MM/YYYY', '30/12/2014')
     expect(result).to.be.eql(date)
 
+  it 'Should create from format YYYY-MM-DD', ->
+    date   = new Date(2014, 11, 30)
+    result = dateService.createFromFormat('YYYY-MM-DD', '2014-12-30')
+    expect(result.getDate()).to.be.eql(30)
+    expect(result).to.be.eql(date)
+
   it 'Should add month', ->
     date = new Date(2014, 11, 31)
     dateService.addMonth(date)
