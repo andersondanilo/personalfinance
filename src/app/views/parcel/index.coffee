@@ -76,18 +76,30 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'views/main', 'collect
 
       doRefreshSum = _.throttle(doRefreshSum, 300)
 
+      resetTime = (date) ->
+        date2 = new Date(date)
+        date2.setHours 0
+        date2.setMinutes 0
+        date2.setSeconds 0
+        return date2
+
+      date_start = new Date()
+      date_start.setDate(date_start.getDate() - 1)
+      date_start = resetTime date_start
+      date_limit = new Date()
+      date_limit.setDate(date_limit.getDate() + 31)
+      date_limit = resetTime date_limit
+
+      conditionFnc = (model) ->
+        date2 = resetTime model.get('date_obj')
+        return date2 >= date_start && date2 <= date_limit
+
       doFetch = =>
-
-        date_start = new Date()
-        date_start.setDate(date_start.getDate() - 1)
-        date_limit = new Date()
-        date_limit.setDate(date_limit.getDate() + 31)
-
-        date_start = dateService.format 'YYYY-MM-DD', date_start
-        date_limit = dateService.format 'YYYY-MM-DD', date_limit
+        date_start_str = dateService.format 'YYYY-MM-DD', date_start
+        date_limit_str = dateService.format 'YYYY-MM-DD', date_limit
 
         @collection.fetch {
-          conditions: {'date': [date_start, date_limit]}
+          conditions: {'date': [date_start_str, date_limit_str]}
           success: =>
             @collection.set @collection.where({'movement_type':@movement_type})
             doRefreshSum()
@@ -102,16 +114,18 @@ define ['zepto', 'underscore', 'components/view', 'i18n', 'views/main', 'collect
 
       app.events.on 'create:parcel', (parcel) =>
         if parcel.get('movement_type') == @movement_type
-          @collection.add([parcel])
-          doRefreshSum()
+          if conditionFnc parcel
+            @collection.add([parcel])
+            doRefreshSum()
 
       app.events.on 'update:parcel', (parcel) =>
         if parcel.get('movement_type') == @movement_type
-          # Remove old
-          results = @collection.where {id:parcel.get('id')}
-          @collection.remove(results)
-          @collection.add([parcel])
-          doRefreshSum()
+          if conditionFnc parcel
+            # Remove old
+            results = @collection.where {id:parcel.get('id')}
+            @collection.remove(results)
+            @collection.add([parcel])
+            doRefreshSum()
 
       app.events.on 'delete:parcel', (parcel) =>
         if parcel.get('movement_type') == @movement_type

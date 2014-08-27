@@ -46,7 +46,7 @@ define ['backbone', 'underscore', 'collections/movement', 'collections/parcel', 
         success: ->
           require('app').events.trigger "update:parcel", model
           require ['services/notification'], (notificationService) ->
-            notificationService.createAlarm model
+            notificationService.createDefaultAlarms model
           if callbacks and callbacks.success
             callbacks.success.apply this, arguments
         error: ->

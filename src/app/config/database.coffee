@@ -32,7 +32,7 @@ define ['indexeddb'], (indexeddb) ->
               collection = new ParcelCollection()
               collection.fetch()
               collection.each (parcel) ->
-                notificationService.createAlarm parcel
+                notificationService.createDefaultAlarms parcel
           , 500)
           next()
     }

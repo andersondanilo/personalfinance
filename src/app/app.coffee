@@ -61,8 +61,8 @@ define [
         require ['services/notification'], (notificationService) ->
           notificationService.triggerNotification(alarm)
 
-      @alarms = new AlarmManager(@events)
       @notifications = new NotificationManager(@events)
+      @alarms = new AlarmManager(@events)
 
       _.delay (->
         require ['services/movement'], (movementService) ->
@@ -72,5 +72,29 @@ define [
       i18n.init conf_i18n, =>
         i18n.initialized = true
         router.start()
+
+    requestApp: (callback) ->
+      if typeof(@mozApp) != 'undefined'
+        callback(@mozApp)
+      try
+        request = window.navigator.mozApps.getSelf()
+        request.onsuccess = =>
+          try
+            @mozApp = request.result
+            require('components/logger').debug("requestApp onSuccess")
+            callback @mozApp
+          catch e
+            require('components/logger').debug("error: #{e}")
+
+        request.onerror = ->
+          require('components/logger').debug("requestApp error: #{this.error.name}")
+
+      catch e
+        require('components/logger').debug("error: #{e}")
+
+    launch: ->
+      @requestApp (mozApp) ->
+        require('components/logger').debug("Launch: #{mozApp}")
+        mozApp.launch()
 
   return new App()

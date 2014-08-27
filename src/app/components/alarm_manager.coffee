@@ -1,4 +1,4 @@
-define ['backbone'], (Backbone) ->
+define ['backbone', 'zepto'], (Backbone, $) ->
 
   class AlarmManager
 
@@ -33,11 +33,17 @@ define ['backbone'], (Backbone) ->
     add: (date, data, callback) ->
       if not navigator.mozAlarms
         return false
+
       request = navigator.mozAlarms.add date, "ignoreTimezone", data
+
+      require('components/logger').debug("Requested alarm for #{date} with #{JSON.stringify(data)}")
 
       request.onsuccess = ->
         alarmId = this.result
+        require('components/logger').debug("Success alarm with id #{alarmId}")
         callback(alarmId)
+      request.onerror = ->
+        require('components/logger').debug("Error alarm on: #{this.error.name}")
 
     delete: (alarmId) ->
       if not navigator.mozAlarms

@@ -16,7 +16,7 @@ define ['components/model', 'services/date', 'services/currency'], (Model, dateS
       status: '1',
       create_date: '',
       update_date: '',
-      alarm_id: null
+      alarms_id: []
 
     computeds:
       color: ->
