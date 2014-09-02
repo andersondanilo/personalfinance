@@ -11,3 +11,5 @@ Este é um aplicativo para FirefoxOS desenvolvido com HTML5, Sass (css), Coffesc
 - Repetição automática (por exemplo, uma mensalidade que se repete todo mês)
 - Notificação no celular antes do vencimento
 
+## Mais informações
+Acesse a página do aplicativo no marketplace https://marketplace.firefox.com/app/personal-finance
