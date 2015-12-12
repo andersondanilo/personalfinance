@@ -620,22 +620,27 @@
 	},
 	"file_history":
 	[
-		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/components/logger.coffee",
 		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/app.coffee",
-		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/components/alarm_manager.coffee",
-		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/components/notification_manager.coffee",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/manifest.webapp",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/index.html",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/test/manifest.webapp",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/test/src/movement_test.coffee",
 		"/home/anderson/Documentos/Projetos/personalfinance/app/test/src/notification_test.coffee",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/components/notification_manager.coffee",
 		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/services/notification.coffee",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/test/src/feature_test.coffee",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/test/index.html",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/services/movement.coffee",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/components/logger.coffee",
+		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/components/alarm_manager.coffee",
 		"/home/anderson/Documentos/Projetos/personalfinance/app/Cakefile",
 		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/components/model.coffee",
-		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/services/movement.coffee",
 		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/widgets/layer_manager.coffee",
 		"/home/anderson/Documentos/Projetos/personalfinance/app/src/vendor/require/text.js",
 		"/home/anderson/Documentos/Projetos/personalfinance/app/test/src/test_helper.coffee",
 		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/config/database.coffee",
 		"/home/anderson/Documentos/Projetos/personalfinance/app/test/src/parcel_test.coffee",
 		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/templates/parcel/update.html",
-		"/home/anderson/Documentos/Projetos/personalfinance/app/test/src/movement_test.coffee",
 		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/views/movement/insert.coffee",
 		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/models/movement.coffee",
 		"/home/anderson/Documentos/Projetos/personalfinance/app/src/assets/styles/main.scss",
@@ -648,7 +653,6 @@
 		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/services/date.coffee",
 		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/templates/configuration/index.html",
 		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/collections/configuration.coffee",
-		"/home/anderson/Documentos/Projetos/personalfinance/app/test/index.html",
 		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/templates/main/index.html",
 		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/templates/parcel/item.html",
 		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/templates/movement/insert.html",
@@ -663,11 +667,8 @@
 		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/locales/es/translation.json",
 		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/locales/en/translation.json",
 		"/home/anderson/Documentos/Projetos/personalfinance/app/personalfinance_app.sublime-project",
-		"/home/anderson/Documentos/Projetos/personalfinance/app/test/manifest.webapp",
 		"/home/anderson/Documentos/Projetos/personalfinance/app/test/mocha.html",
 		"/home/anderson/Documentos/Projetos/personalfinance/app/test/vendor/mocha.js",
-		"/home/anderson/Documentos/Projetos/personalfinance/app/src/manifest.webapp",
-		"/home/anderson/Documentos/Projetos/personalfinance/app/src/index.html",
 		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/components/cache.coffee",
 		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/widgets/action_menu.coffee",
 		"/home/anderson/Documentos/Projetos/personalfinance/app/src/app/views/configuration/index.coffee",
@@ -746,8 +747,7 @@
 		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/mocha-lcov-reporter/index.js",
 		"/home/anderson/Documentos/Projetos/personalfinance/app/node_modules/chai/index.js",
 		"/home/anderson/Documentos/Projetos/personalfinance/app/Gruntfile.coffee",
-		"/home/anderson/Documentos/Projetos/personalfinance/app/Gruntfile.coffe",
-		"/home/anderson/.config/sublime-text-3/Packages/User/Sass.sublime-settings"
+		"/home/anderson/Documentos/Projetos/personalfinance/app/Gruntfile.coffe"
 	],
 	"find":
 	{
@@ -1107,6 +1107,22 @@
 		"selected_items":
 		[
 			[
+				"notima",
+				"src/app/components/notification_manager.coffee"
+			],
+			[
+				"servicenoti",
+				"src/app/services/notification.coffee"
+			],
+			[
+				"aa",
+				"src/app/app.coffee"
+			],
+			[
+				"appcof",
+				"src/app/app.coffee"
+			],
+			[
 				"notman",
 				"src/app/components/notification_manager.coffee"
 			],
@@ -1117,10 +1133,6 @@
 			[
 				"alarmma",
 				"src/app/components/alarm_manager.coffee"
-			],
-			[
-				"servicenoti",
-				"src/app/services/notification.coffee"
 			],
 			[
 				"logger",
@@ -1605,18 +1617,6 @@
 			[
 				"indexcoffe",
 				"src/app/views/parcel/index.coffee"
-			],
-			[
-				"templatemain",
-				"src/app/templates/main/index.html"
-			],
-			[
-				"compmodel",
-				"src/app/components/model.coffee"
-			],
-			[
-				"servicecu",
-				"src/app/services/currency.coffee"
 			]
 		],
 		"width": 0.0

@@ -43,6 +43,16 @@ define ->
                   called = false
                   # result.onclick = 
                   result.onclick = ->
+                    request = navigator.mozApps.getSelf()
+
+                    request.onsuccess = ->
+                      request.result.launch()
+
+                    window.navigator.mozSetMessageHandler 'notification', ->
+                      request = navigator.mozApps.getSelf()
+                      request.onsuccess = ->
+                        request.result.launch()
+
                     if onclick and not called
                       onclick
                     called = true

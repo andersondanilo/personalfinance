@@ -77,7 +77,7 @@ define [
       if typeof(@mozApp) != 'undefined'
         callback(@mozApp)
       try
-        request = window.navigator.mozApps.getSelf()
+        request = navigator.mozApps.getSelf()
         request.onsuccess = =>
           try
             @mozApp = request.result
@@ -94,7 +94,7 @@ define [
 
     launch: ->
       @requestApp (mozApp) ->
-        require('components/logger').debug("Launch: #{mozApp}")
         mozApp.launch()
+        require('components/logger').debug("Launch: #{mozApp}")
 
   return new App()

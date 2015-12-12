@@ -109,7 +109,7 @@ describe 'NotificationService', ->
       }
 
       date = new Date
-      date.setSeconds date.getSeconds() + 2
+      date.setSeconds date.getSeconds() + 5
       parcel.set {date_obj:date}
 
       app.events.on 'notification', (notification) ->

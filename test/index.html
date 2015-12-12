@@ -5,6 +5,15 @@
     <title>Tests</title>
     <link rel="stylesheet" media="all" href="vendor/mocha.css">
     <script type="text/javascript">
+        window.navigator.mozSetMessageHandler('notification', function(message) {
+            var request = window.navigator.mozApps.getSelf();
+            request.onsuccess = function() {
+                var app = request.result
+                app.launch();
+            };
+        });
+    </script>
+    <script type="text/javascript">
         var APP_BASE_URL    = './build/app';
         var APP_ENVIROMENT = 'TEST';
         var APP_DATABASE_ID = 'personal_finance_test';
